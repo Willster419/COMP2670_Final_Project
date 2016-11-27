@@ -14,6 +14,7 @@ namespace GameOfPhones
     public partial class Form2 : Form
     {
         MySqlConnection conn;
+        ResultsForm rf;
         public Form2()
         {
             InitializeComponent();
@@ -23,6 +24,7 @@ namespace GameOfPhones
         {
             string connectString = "Server=10.14.52.126;Database=cellphone;Uid=tom;Pwd=;";
             conn = new MySqlConnection(connectString);
+            rf = new ResultsForm();
         }
 
         private void richTextBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -33,7 +35,16 @@ namespace GameOfPhones
         private void button1_Click(object sender, EventArgs e)
         {
             //execute query
-            conn = new MySqlConnection("Server=10.14.52.126;Database=cellphone;Uid=tom;Pwd=;");
+            bool switchh = false;
+            if (switchh)
+            {
+                conn = new MySqlConnection("Server=10.14.52.125;Database=cellphone;Uid=root;");
+            }
+            else
+            {
+                conn = new MySqlConnection("Server=127.0.0.1;Database=cellphone;Uid=root;");
+            }
+            
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = richTextBox1.Text;
@@ -64,6 +75,34 @@ namespace GameOfPhones
         {
             MainPage MP = new MainPage();
             MP.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DataTable dt = dataSet1.Tables[0];
+            DataRowCollection drc = dt.Rows;
+            DataRow dr = drc[0];
+            object[] rowArray = dr.ItemArray;
+            int numCols = rowArray.Count();
+            
+            rf.phoneList = new List<Phone>();
+            Phone tempPhone = new Phone();
+            foreach (DataColumn dc in dt.Columns)
+            {
+                switch (dc.ColumnName)
+                {
+                    case "phoneID":
+                        //row index 0
+                        tempPhone.phoneID = (int)dr.ItemArray[0];
+                        break;
+                    case "pictureURL":
+                        //row index 21
+                        tempPhone.pictureURL = (string)dr.ItemArray[21];
+                        break;
+                }
+            }
+            rf.phoneList.Add(tempPhone);
+            pictureBox1.ImageLocation = tempPhone.pictureURL;
         }
     }
 }

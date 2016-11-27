@@ -13,6 +13,7 @@ namespace GameOfPhones
     {
         FullInfo FI;
         Compare comp = new Compare();
+        public List<Phone> phoneList;
         public ResultsForm()
         {
             InitializeComponent();
@@ -27,6 +28,13 @@ namespace GameOfPhones
         private void button1_Click(object sender, EventArgs e)
         {
             comp.Show();
+        }
+
+        private void ResultsForm_Load(object sender, EventArgs e)
+        {
+            phoneList = new List<Phone>();
+            Phone p = new Phone();
+            
         }
     }
 }
