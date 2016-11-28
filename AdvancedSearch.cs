@@ -20,5 +20,12 @@ namespace GameOfPhones
         {
             this.Close();
         }
+
+        private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (e.NewValue == CheckState.Checked)
+                for (int ix = 0; ix < checkedListBox1.Items.Count; ++ix)
+                    if (e.Index != ix) checkedListBox1.SetItemChecked(ix, false);
+        }
     }
 }
