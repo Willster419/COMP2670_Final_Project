@@ -11,6 +11,10 @@ namespace GameOfPhones
 {
     public partial class Test : Form
     {
+        string query;
+        FullInfo FI;
+        Compare comp = new Compare();
+        public List<Phone> phoneList;
 
         public Test()
         {
@@ -147,6 +151,159 @@ namespace GameOfPhones
         {
             this.tableLayoutPanel1.RowCount++;
             this.tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute,220));
+        }
+
+        private void Test_Load(object sender, EventArgs e)
+        {
+            //take query and parse it into arraylist
+            query = "";
+        }
+        /*
+         * Panel newPhoneInfoPanel = new Panel();
+            CheckBox newCompareCheckBox = new CheckBox();
+            Label newOSLabel = new Label();
+            Label newPriceLabel = new Label();
+            Label newGSMCDMALabel = new Label();
+            Label newRAMSizeLabel = new Label();
+            Label newCPUInfoLabel = new Label();
+            LinkLabel newPhoneFullInfoLink = new LinkLabel();
+            PictureBox newPhonePictureBox = new PictureBox();
+            Label newInternalStorageLabel = new Label();
+         * */
+        private void addResult(string manufactureName,
+            string phoneName,
+            string CpuFreq,
+            string CpuCoreNum,
+            string RamSize,
+            string GSMCDMAType,
+            string price,
+            string OSname,
+            string pictureURL,
+            string internalStorageSize)
+        {
+            Panel newPhoneInfoPanel = new Panel();
+            CheckBox newCompareCheckBox = new CheckBox();
+            Label newOSLabel = new Label();
+            Label newPriceLabel = new Label();
+            Label newGSMCDMALabel = new Label();
+            Label newRAMSizeLabel = new Label();
+            Label newCPUInfoLabel = new Label();
+            LinkLabel newPhoneFullInfoLink = new LinkLabel();
+            PictureBox newPhonePictureBox = new PictureBox();
+            Label newInternalStorageLabel = new Label();
+
+            // 
+            // phoneInfoPanel
+            // 
+            newPhoneInfoPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            newPhoneInfoPanel.Controls.Add(newInternalStorageLabel);
+            newPhoneInfoPanel.Controls.Add(newCompareCheckBox);
+            newPhoneInfoPanel.Controls.Add(newOSLabel);
+            newPhoneInfoPanel.Controls.Add(newPriceLabel);
+            newPhoneInfoPanel.Controls.Add(newGSMCDMALabel);
+            newPhoneInfoPanel.Controls.Add(newRAMSizeLabel);
+            newPhoneInfoPanel.Controls.Add(newCPUInfoLabel);
+            newPhoneInfoPanel.Controls.Add(newPhoneFullInfoLink);
+            newPhoneInfoPanel.Controls.Add(newPhonePictureBox);
+            newPhoneInfoPanel.Location = new System.Drawing.Point(3, 3);
+            newPhoneInfoPanel.Name = "phoneInfoPanel";
+            newPhoneInfoPanel.Size = new System.Drawing.Size(294, 214);
+            newPhoneInfoPanel.TabIndex = 8;
+            // 
+            // compareCheckBox
+            // 
+            newCompareCheckBox.AutoSize = true;
+            newCompareCheckBox.Location = new System.Drawing.Point(136, 178);
+            newCompareCheckBox.Name = "compareCheckBox";
+            newCompareCheckBox.Size = new System.Drawing.Size(67, 17);
+            newCompareCheckBox.TabIndex = 7;
+            newCompareCheckBox.Text = "compare";
+            newCompareCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // OSLabel
+            // 
+            newOSLabel.AutoSize = true;
+            newOSLabel.Location = new System.Drawing.Point(133, 106);
+            newOSLabel.Name = "OSLabel";
+            newOSLabel.Size = new System.Drawing.Size(22, 13);
+            newOSLabel.TabIndex = 6;
+            newOSLabel.Text = OSname;
+            // 
+            // priceLabel
+            // 
+            newPriceLabel.AutoSize = true;
+            newPriceLabel.Location = new System.Drawing.Point(133, 152);
+            newPriceLabel.Name = "priceLabel";
+            newPriceLabel.Size = new System.Drawing.Size(31, 13);
+            newPriceLabel.TabIndex = 5;
+            newPriceLabel.Text = "$" + price;
+            // 
+            // GSMCDMALabel
+            // 
+            newGSMCDMALabel.AutoSize = true;
+            newGSMCDMALabel.Location = new System.Drawing.Point(133, 82);
+            newGSMCDMALabel.Name = "GSMCDMALabel";
+            newGSMCDMALabel.Size = new System.Drawing.Size(67, 13);
+            newGSMCDMALabel.TabIndex = 4;
+            newGSMCDMALabel.Text = GSMCDMAType;
+            // 
+            // RAMSizeLabel
+            // 
+            newRAMSizeLabel.AutoSize = true;
+            newRAMSizeLabel.Location = new System.Drawing.Point(133, 56);
+            newRAMSizeLabel.Name = "RAMSizeLabel";
+            newRAMSizeLabel.Size = new System.Drawing.Size(52, 13);
+            newRAMSizeLabel.TabIndex = 3;
+            newRAMSizeLabel.Text = RamSize + "MB RAM";
+            // 
+            // CPUInfoLabel
+            // 
+            newCPUInfoLabel.AutoSize = true;
+            newCPUInfoLabel.Location = new System.Drawing.Point(133, 31);
+            newCPUInfoLabel.Name = "CPUInfoLabel";
+            newCPUInfoLabel.Size = new System.Drawing.Size(50, 13);
+            newCPUInfoLabel.TabIndex = 2;
+            newCPUInfoLabel.Text = CpuCoreNum + " cores @ " + CpuFreq + "GHz";
+            // 
+            // phoneFullInfoLink
+            // 
+            newPhoneFullInfoLink.AutoSize = true;
+            newPhoneFullInfoLink.Location = new System.Drawing.Point(133, 3);
+            newPhoneFullInfoLink.Name = "phoneFullInfoLink";
+            newPhoneFullInfoLink.Size = new System.Drawing.Size(99, 13);
+            newPhoneFullInfoLink.TabIndex = 1;
+            newPhoneFullInfoLink.TabStop = true;
+            newPhoneFullInfoLink.Text = manufactureName + " " + phoneName;
+            // 
+            // phonePictureBox
+            // 
+            newPhonePictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            newPhonePictureBox.Location = new System.Drawing.Point(3, 3);
+            newPhonePictureBox.Name = "phonePictureBox";
+            newPhonePictureBox.Size = new System.Drawing.Size(124, 213);
+            newPhonePictureBox.TabIndex = 0;
+            newPhonePictureBox.TabStop = false;
+            newPhonePictureBox.ImageLocation = pictureURL;
+            // 
+            // internalStorageLabel
+            // 
+            newInternalStorageLabel.AutoSize = true;
+            newInternalStorageLabel.Location = new System.Drawing.Point(133, 128);
+            newInternalStorageLabel.Name = "internalStorageLabel";
+            newInternalStorageLabel.Size = new System.Drawing.Size(82, 13);
+            newInternalStorageLabel.TabIndex = 8;
+            newInternalStorageLabel.Text = internalStorageSize + "MB Internal Storage";
+
+            int totalHold = this.tableLayoutPanel1.ColumnCount * this.tableLayoutPanel1.RowCount;
+            if (totalHold == this.tableLayoutPanel1.Controls.Count)
+            {
+                this.tableLayoutPanel1.RowCount++;
+                this.tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 220));
+            }
+
+
+            this.tableLayoutPanel1.Controls.Add(newPhoneInfoPanel);
+            
         }
     }
 }

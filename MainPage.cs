@@ -13,6 +13,7 @@ namespace GameOfPhones
     {
         ResultsForm RF;
         AdvancedSearch AS;
+        Test t;
         public MainPage()
         {
             InitializeComponent();
@@ -28,8 +29,10 @@ namespace GameOfPhones
         {
             AS = new AdvancedSearch();
             AS.ShowDialog();
-            RF = new ResultsForm();
-            RF.ShowDialog();
+            //RF = new ResultsForm();
+            //RF.ShowDialog();
+            t = new Test();
+            t.ShowDialog();
         }
     }
 }
