@@ -6,18 +6,28 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace GameOfPhones
 {
     public partial class Test : Form
     {
-        string query;
+        public string query;
         FullInfo FI;
         Compare comp = new Compare();
         public List<Phone> phoneList;
+        MySqlConnection conn;
+        DataSet phoneDataSet;
 
         public Test()
         {
+            InitializeComponent();
+        }
+
+        public Test(string queryy)
+        {
+            query = queryy;
             InitializeComponent();
         }
 
@@ -156,20 +166,41 @@ namespace GameOfPhones
         private void Test_Load(object sender, EventArgs e)
         {
             //take query and parse it into arraylist
-            query = "";
+            bool switchh = false;
+            if (switchh)
+            {
+                conn = new MySqlConnection("Server=10.14.52.125;Database=cellphone;Uid=root;");
+            }
+            else
+            {
+                conn = new MySqlConnection("Server=127.0.0.1;Database=cellphone;Uid=root;");
+            }
+            
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = query;
+                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                phoneDataSet = new DataSet();
+                adap.Fill(phoneDataSet);
+            }
+            catch (MySqlException m)
+            {
+                MessageBox.Show(m.Message);
+            }
+            conn.Close();
+
+            //parse it into the arraylist
+            DataTable dt = phoneDataSet.Tables[0];
+            List<int> phoneArray = new List<int>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                phoneArray.Add((int)dr.ItemArray[0]);
+            }
+
+            //have it run a new query to return all phone information for the results page
         }
-        /*
-         * Panel newPhoneInfoPanel = new Panel();
-            CheckBox newCompareCheckBox = new CheckBox();
-            Label newOSLabel = new Label();
-            Label newPriceLabel = new Label();
-            Label newGSMCDMALabel = new Label();
-            Label newRAMSizeLabel = new Label();
-            Label newCPUInfoLabel = new Label();
-            LinkLabel newPhoneFullInfoLink = new LinkLabel();
-            PictureBox newPhonePictureBox = new PictureBox();
-            Label newInternalStorageLabel = new Label();
-         * */
         private void addResult(string manufactureName,
             string phoneName,
             string CpuFreq,
@@ -304,6 +335,11 @@ namespace GameOfPhones
 
             this.tableLayoutPanel1.Controls.Add(newPhoneInfoPanel);
             
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
