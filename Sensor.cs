@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GameOfPhones
 {
-    class Sensor
+    public class Sensor
     {
         /// <summary>
         /// The Unique ID of the sensor

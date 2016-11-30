@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GameOfPhones
 {
-    class Display
+    public class Display
     {
         /// <summary>
         /// The unique ID of the display

@@ -10,7 +10,10 @@ namespace GameOfPhones
         //define all parameters we will need
         public Phone()
         {
- 
+            carrierList = new List<Carrier>();
+            cameraList = new List<Camera>();
+            sensorList = new List<Sensor>();
+            featureList = new List<Feature>();
         }
         /// <summary>
         /// The Unique ID number of the phone
@@ -108,5 +111,41 @@ namespace GameOfPhones
         /// The type of SIM card the phone takes
         /// </summary>
         public string simCardType { get; set; }
+
+        public string isGSMCDMA { get; set; }
+
+        public string manufactureName { get; set; }
+
+        public string OSName { get; set; }
+
+        public string chargePortname { get; set; }
+
+        public float CPUFreq { get; set; }
+
+        public string CPUName { get; set; }
+
+        public string CPUModel { get; set; }
+
+        public int CPUNumCores { get; set; }
+
+        public string displayType { get; set; }
+
+        public bool isTouchScreen { get; set; }
+
+        public float sizeInches { get; set; }
+
+        public int heightPixels { get; set; }
+
+        public int widthPixels { get; set; }
+
+        public int dpi { get; set; }
+
+        public List<Camera> cameraList;
+
+        public List<Carrier> carrierList;
+
+        public List<Sensor> sensorList;
+
+        public List<Feature> featureList;
     }
 }

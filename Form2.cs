@@ -35,7 +35,7 @@ namespace GameOfPhones
         private void button1_Click(object sender, EventArgs e)
         {
             //execute query
-            bool switchh = false;
+            bool switchh = true; ;
             if (switchh)
             {
                 conn = new MySqlConnection("Server=10.14.52.125;Database=cellphone;Uid=root;");

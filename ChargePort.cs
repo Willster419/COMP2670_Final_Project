@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GameOfPhones
 {
-    class ChargePort
+    public class ChargePort
     {
         /// <summary>
         /// The Unique ID of the charge port

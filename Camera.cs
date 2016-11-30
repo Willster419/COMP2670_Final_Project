@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GameOfPhones
 {
-    class Camera
+    public class Camera
     {
         /// <summary>
         /// The Unique ID of this camera

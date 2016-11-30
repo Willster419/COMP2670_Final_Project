@@ -6,21 +6,21 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace GameOfPhones
 {
     public partial class FullInfo : Form
     {
-        HelpInfo HI;
+        public string query;
+        MySqlConnection conn;
+        DataSet phoneDataSet;
+
         public FullInfo()
         {
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-            HI = new HelpInfo();
-            HI.ShowDialog();
-        }
     }
 }

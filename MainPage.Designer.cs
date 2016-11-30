@@ -33,6 +33,9 @@
             this.searchButton = new System.Windows.Forms.Button();
             this.advancedSearchButton = new System.Windows.Forms.Button();
             this.HintLabel = new System.Windows.Forms.Label();
+            this.orLabel = new System.Windows.Forms.Label();
+            this.orderByLabel = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -65,7 +68,7 @@
             // 
             // advancedSearchButton
             // 
-            this.advancedSearchButton.Location = new System.Drawing.Point(201, 84);
+            this.advancedSearchButton.Location = new System.Drawing.Point(401, 90);
             this.advancedSearchButton.Name = "advancedSearchButton";
             this.advancedSearchButton.Size = new System.Drawing.Size(75, 23);
             this.advancedSearchButton.TabIndex = 3;
@@ -82,11 +85,45 @@
             this.HintLabel.TabIndex = 4;
             this.HintLabel.Text = "Enter manufacter, phone name, seperate by spaces";
             // 
+            // orLabel
+            // 
+            this.orLabel.AutoSize = true;
+            this.orLabel.Location = new System.Drawing.Point(417, 74);
+            this.orLabel.Name = "orLabel";
+            this.orLabel.Size = new System.Drawing.Size(16, 13);
+            this.orLabel.TabIndex = 5;
+            this.orLabel.Text = "or";
+            // 
+            // orderByLabel
+            // 
+            this.orderByLabel.AutoSize = true;
+            this.orderByLabel.Location = new System.Drawing.Point(29, 74);
+            this.orderByLabel.Name = "orderByLabel";
+            this.orderByLabel.Size = new System.Drawing.Size(45, 13);
+            this.orderByLabel.TabIndex = 6;
+            this.orderByLabel.Text = "order by";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Price",
+            "Phone Name",
+            "RAM",
+            "Internal Capacity"});
+            this.comboBox1.Location = new System.Drawing.Point(80, 71);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 7;
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(505, 157);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.orderByLabel);
+            this.Controls.Add(this.orLabel);
             this.Controls.Add(this.HintLabel);
             this.Controls.Add(this.advancedSearchButton);
             this.Controls.Add(this.searchButton);
@@ -106,5 +143,8 @@
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Button advancedSearchButton;
         private System.Windows.Forms.Label HintLabel;
+        private System.Windows.Forms.Label orLabel;
+        private System.Windows.Forms.Label orderByLabel;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GameOfPhones
 {
-    class Carrier
+    public class Carrier
     {
         /// <summary>
         /// The ID of the carrier
@@ -19,6 +19,9 @@ namespace GameOfPhones
         /// The name of the Carrier
         /// </summary>
         public string name { get; set; }
+
+        public string networkName { get; set; }
+
         public override string ToString()
         {
             return carrierID + " - " + networkID + " - " + name;

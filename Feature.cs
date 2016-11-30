@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GameOfPhones
 {
-    class Feature
+    public class Feature
     {
         /// <summary>
         /// The Unique ID of the feature

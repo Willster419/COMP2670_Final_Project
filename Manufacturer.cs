@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GameOfPhones
 {
-    class Manufacturer
+    public class Manufacturer
     {
         /// <summary>
         /// The Unique ID of the manufacturer

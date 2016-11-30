@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GameOfPhones
 {
-    class CPU
+    public class CPU
     {
         /// <summary>
         /// The Unique ID of the CPU

@@ -27,14 +27,17 @@ namespace GameOfPhones
             foreach (string s in parseArray)
             {
                 //run the query for manufacturer with union
-                sb.Append("select phone.phoneID from phone inner join manufacturer on manufacturer.manufacturerID=phone.manufacturerID WHERE manufacturer.name LIKE '%" + s + "%' union ");
+                sb.Append("select Phone.phoneID from Phone inner join Manufacturer on Manufacturer.manufacturerID=Phone.manufacturerID WHERE Manufacturer.name LIKE '%" + s + "%' union ");
                 //run the query for phone with union
-                sb.Append("select phone.phoneID from phone where phone.name like '%" + s + "%' union ");
+                sb.Append("select Phone.phoneID from Phone where Phone.name like '%" + s + "%' union ");
             }
+            string query = sb.ToString().Substring(0, sb.ToString().Length - 6);
+            //order by section
+
             //send the query to the results form page
             //RF = new ResultsForm();
             //RF.ShowDialog();
-            string query = sb.ToString().Substring(0,sb.ToString().Length-6);
+            
             t = new Test(query);
             t.ShowDialog();
         }
@@ -43,8 +46,8 @@ namespace GameOfPhones
         {
             AS = new AdvancedSearch();
             AS.ShowDialog();
-            //RF = new ResultsForm();
-            //RF.ShowDialog();
+            //grab the query from the advanced table and put it into the results form
+
             t = new Test();
             t.ShowDialog();
         }

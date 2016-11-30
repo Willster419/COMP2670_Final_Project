@@ -30,13 +30,13 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.phoneFreqBox = new System.Windows.Forms.CheckedListBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.searchButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.phoneCoreBox = new System.Windows.Forms.CheckedListBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -45,45 +45,48 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.checkedListBox3 = new System.Windows.Forms.CheckedListBox();
+            this.OSBox = new System.Windows.Forms.CheckedListBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.checkedListBox4 = new System.Windows.Forms.CheckedListBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.checkedListBox5 = new System.Windows.Forms.CheckedListBox();
-            this.checkedListBox6 = new System.Windows.Forms.CheckedListBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.opticalZoomBox = new System.Windows.Forms.CheckedListBox();
+            this.cameraMPixBox = new System.Windows.Forms.CheckedListBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.cameraNumBox = new System.Windows.Forms.CheckedListBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.checkedListBox7 = new System.Windows.Forms.CheckedListBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.checkedListBox14 = new System.Windows.Forms.CheckedListBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.checkedListBox13 = new System.Windows.Forms.CheckedListBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.checkedListBox8 = new System.Windows.Forms.CheckedListBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.checkedListBox7 = new System.Windows.Forms.CheckedListBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.checkedListBox20 = new System.Windows.Forms.CheckedListBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.checkedListBox19 = new System.Windows.Forms.CheckedListBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.checkedListBox18 = new System.Windows.Forms.CheckedListBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.checkedListBox17 = new System.Windows.Forms.CheckedListBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.checkedListBox16 = new System.Windows.Forms.CheckedListBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.checkedListBox9 = new System.Windows.Forms.CheckedListBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.checkedListBox10 = new System.Windows.Forms.CheckedListBox();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.checkedListBox11 = new System.Windows.Forms.CheckedListBox();
             this.checkedListBox12 = new System.Windows.Forms.CheckedListBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.checkedListBox13 = new System.Windows.Forms.CheckedListBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.checkedListBox14 = new System.Windows.Forms.CheckedListBox();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.checkedListBox15 = new System.Windows.Forms.CheckedListBox();
-            this.checkedListBox16 = new System.Windows.Forms.CheckedListBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.checkedListBox17 = new System.Windows.Forms.CheckedListBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.checkedListBox18 = new System.Windows.Forms.CheckedListBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.checkedListBox19 = new System.Windows.Forms.CheckedListBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.checkedListBox20 = new System.Windows.Forms.CheckedListBox();
-            this.label27 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.manufacturerBox = new System.Windows.Forms.CheckedListBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.orderByLabel = new System.Windows.Forms.Label();
+            this.backButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -112,20 +115,20 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "this also needs a public string to return as the query for the main page";
             // 
-            // checkedListBox1
+            // phoneFreqBox
             // 
-            this.checkedListBox1.CheckOnClick = true;
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
+            this.phoneFreqBox.CheckOnClick = true;
+            this.phoneFreqBox.FormattingEnabled = true;
+            this.phoneFreqBox.Items.AddRange(new object[] {
             "CPU1",
             "CPU2",
             "CPU3"});
-            this.checkedListBox1.Location = new System.Drawing.Point(3, 16);
-            this.checkedListBox1.MultiColumn = true;
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(93, 109);
-            this.checkedListBox1.TabIndex = 2;
-            this.checkedListBox1.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox1_ItemCheck);
+            this.phoneFreqBox.Location = new System.Drawing.Point(3, 16);
+            this.phoneFreqBox.MultiColumn = true;
+            this.phoneFreqBox.Name = "phoneFreqBox";
+            this.phoneFreqBox.Size = new System.Drawing.Size(93, 109);
+            this.phoneFreqBox.TabIndex = 2;
+            this.phoneFreqBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox1_ItemCheck);
             // 
             // label3
             // 
@@ -136,37 +139,45 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "CPU";
             // 
-            // button1
+            // searchButton
             // 
-            this.button1.Location = new System.Drawing.Point(784, 347);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.searchButton.Location = new System.Drawing.Point(784, 347);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(75, 23);
+            this.searchButton.TabIndex = 4;
+            this.searchButton.Text = "search";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel1
             // 
             this.panel1.AutoScroll = true;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.checkedListBox2);
+            this.panel1.Controls.Add(this.phoneCoreBox);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.checkedListBox1);
+            this.panel1.Controls.Add(this.phoneFreqBox);
             this.panel1.Location = new System.Drawing.Point(12, 47);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(101, 326);
             this.panel1.TabIndex = 5;
             // 
-            // label4
+            // phoneCoreBox
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Frequency";
+            this.phoneCoreBox.FormattingEnabled = true;
+            this.phoneCoreBox.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"});
+            this.phoneCoreBox.Location = new System.Drawing.Point(2, 147);
+            this.phoneCoreBox.Name = "phoneCoreBox";
+            this.phoneCoreBox.Size = new System.Drawing.Size(94, 94);
+            this.phoneCoreBox.TabIndex = 5;
             // 
             // label5
             // 
@@ -177,22 +188,14 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Number of Cores";
             // 
-            // checkedListBox2
+            // label4
             // 
-            this.checkedListBox2.FormattingEnabled = true;
-            this.checkedListBox2.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8"});
-            this.checkedListBox2.Location = new System.Drawing.Point(2, 147);
-            this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(94, 94);
-            this.checkedListBox2.TabIndex = 5;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(57, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Frequency";
             // 
             // label6
             // 
@@ -261,69 +264,72 @@
             // 
             this.panel2.AutoScroll = true;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.checkedListBox3);
+            this.panel2.Controls.Add(this.OSBox);
             this.panel2.Location = new System.Drawing.Point(119, 47);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(176, 165);
             this.panel2.TabIndex = 13;
             // 
-            // checkedListBox3
+            // OSBox
             // 
-            this.checkedListBox3.FormattingEnabled = true;
-            this.checkedListBox3.Items.AddRange(new object[] {
+            this.OSBox.FormattingEnabled = true;
+            this.OSBox.Items.AddRange(new object[] {
             "Android 6.0 Marshmellow",
             "IOS",
             "Crackberry"});
-            this.checkedListBox3.Location = new System.Drawing.Point(3, 3);
-            this.checkedListBox3.Name = "checkedListBox3";
-            this.checkedListBox3.Size = new System.Drawing.Size(168, 94);
-            this.checkedListBox3.TabIndex = 0;
+            this.OSBox.Location = new System.Drawing.Point(3, 3);
+            this.OSBox.Name = "OSBox";
+            this.OSBox.Size = new System.Drawing.Size(168, 94);
+            this.OSBox.TabIndex = 0;
             // 
             // panel3
             // 
             this.panel3.AutoScroll = true;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.label16);
-            this.panel3.Controls.Add(this.checkedListBox6);
-            this.panel3.Controls.Add(this.checkedListBox5);
+            this.panel3.Controls.Add(this.opticalZoomBox);
+            this.panel3.Controls.Add(this.cameraMPixBox);
             this.panel3.Controls.Add(this.label15);
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.label14);
-            this.panel3.Controls.Add(this.checkedListBox4);
+            this.panel3.Controls.Add(this.cameraNumBox);
             this.panel3.Location = new System.Drawing.Point(301, 47);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(112, 326);
             this.panel3.TabIndex = 14;
             // 
-            // checkedListBox4
+            // label16
             // 
-            this.checkedListBox4.FormattingEnabled = true;
-            this.checkedListBox4.Items.AddRange(new object[] {
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(3, 341);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(84, 13);
+            this.label16.TabIndex = 20;
+            this.label16.Text = "* of best camera";
+            // 
+            // opticalZoomBox
+            // 
+            this.opticalZoomBox.FormattingEnabled = true;
+            this.opticalZoomBox.Items.AddRange(new object[] {
             "1",
             "2",
-            "3+"});
-            this.checkedListBox4.Location = new System.Drawing.Point(3, 15);
-            this.checkedListBox4.Name = "checkedListBox4";
-            this.checkedListBox4.Size = new System.Drawing.Size(48, 94);
-            this.checkedListBox4.TabIndex = 0;
+            "3"});
+            this.opticalZoomBox.Location = new System.Drawing.Point(3, 244);
+            this.opticalZoomBox.Name = "opticalZoomBox";
+            this.opticalZoomBox.Size = new System.Drawing.Size(48, 94);
+            this.opticalZoomBox.TabIndex = 19;
             // 
-            // label14
+            // cameraMPixBox
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(3, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(69, 13);
-            this.label14.TabIndex = 15;
-            this.label14.Text = "# of cameras";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 112);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(47, 13);
-            this.label13.TabIndex = 16;
-            this.label13.Text = "MPixels*";
+            this.cameraMPixBox.FormattingEnabled = true;
+            this.cameraMPixBox.Items.AddRange(new object[] {
+            "1",
+            "1.5",
+            "2"});
+            this.cameraMPixBox.Location = new System.Drawing.Point(3, 128);
+            this.cameraMPixBox.Name = "cameraMPixBox";
+            this.cameraMPixBox.Size = new System.Drawing.Size(48, 94);
+            this.cameraMPixBox.TabIndex = 18;
             // 
             // label15
             // 
@@ -334,38 +340,35 @@
             this.label15.TabIndex = 17;
             this.label15.Text = "Optical Zoom*";
             // 
-            // checkedListBox5
+            // label13
             // 
-            this.checkedListBox5.FormattingEnabled = true;
-            this.checkedListBox5.Items.AddRange(new object[] {
-            "1",
-            "1.5",
-            "2"});
-            this.checkedListBox5.Location = new System.Drawing.Point(3, 128);
-            this.checkedListBox5.Name = "checkedListBox5";
-            this.checkedListBox5.Size = new System.Drawing.Size(48, 94);
-            this.checkedListBox5.TabIndex = 18;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(3, 112);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(47, 13);
+            this.label13.TabIndex = 16;
+            this.label13.Text = "MPixels*";
             // 
-            // checkedListBox6
+            // label14
             // 
-            this.checkedListBox6.FormattingEnabled = true;
-            this.checkedListBox6.Items.AddRange(new object[] {
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(3, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(69, 13);
+            this.label14.TabIndex = 15;
+            this.label14.Text = "# of cameras";
+            // 
+            // cameraNumBox
+            // 
+            this.cameraNumBox.FormattingEnabled = true;
+            this.cameraNumBox.Items.AddRange(new object[] {
             "1",
             "2",
-            "3"});
-            this.checkedListBox6.Location = new System.Drawing.Point(3, 244);
-            this.checkedListBox6.Name = "checkedListBox6";
-            this.checkedListBox6.Size = new System.Drawing.Size(48, 94);
-            this.checkedListBox6.TabIndex = 19;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(3, 341);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(84, 13);
-            this.label16.TabIndex = 20;
-            this.label16.Text = "* of best camera";
+            "3+"});
+            this.cameraNumBox.Location = new System.Drawing.Point(3, 15);
+            this.cameraNumBox.Name = "cameraNumBox";
+            this.cameraNumBox.Size = new System.Drawing.Size(48, 94);
+            this.cameraNumBox.TabIndex = 0;
             // 
             // panel4
             // 
@@ -384,22 +387,47 @@
             this.panel4.Size = new System.Drawing.Size(146, 325);
             this.panel4.TabIndex = 15;
             // 
-            // checkedListBox7
+            // checkedListBox14
             // 
-            this.checkedListBox7.FormattingEnabled = true;
-            this.checkedListBox7.Location = new System.Drawing.Point(3, 18);
-            this.checkedListBox7.Name = "checkedListBox7";
-            this.checkedListBox7.Size = new System.Drawing.Size(120, 94);
-            this.checkedListBox7.TabIndex = 0;
+            this.checkedListBox14.FormattingEnabled = true;
+            this.checkedListBox14.Location = new System.Drawing.Point(3, 357);
+            this.checkedListBox14.Name = "checkedListBox14";
+            this.checkedListBox14.Size = new System.Drawing.Size(120, 94);
+            this.checkedListBox14.TabIndex = 7;
             // 
-            // label17
+            // label22
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(3, 3);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(92, 13);
-            this.label17.TabIndex = 1;
-            this.label17.Text = "Resolution Quality";
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(3, 341);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(70, 13);
+            this.label22.TabIndex = 6;
+            this.label22.Text = "Touchscreen";
+            // 
+            // checkedListBox13
+            // 
+            this.checkedListBox13.FormattingEnabled = true;
+            this.checkedListBox13.Location = new System.Drawing.Point(3, 244);
+            this.checkedListBox13.Name = "checkedListBox13";
+            this.checkedListBox13.Size = new System.Drawing.Size(120, 94);
+            this.checkedListBox13.TabIndex = 5;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(3, 228);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(27, 13);
+            this.label21.TabIndex = 4;
+            this.label21.Text = "Size";
+            // 
+            // checkedListBox8
+            // 
+            this.checkedListBox8.FormattingEnabled = true;
+            this.checkedListBox8.Location = new System.Drawing.Point(3, 131);
+            this.checkedListBox8.Name = "checkedListBox8";
+            this.checkedListBox8.Size = new System.Drawing.Size(120, 94);
+            this.checkedListBox8.TabIndex = 3;
             // 
             // label18
             // 
@@ -410,13 +438,22 @@
             this.label18.TabIndex = 2;
             this.label18.Text = "Display Type";
             // 
-            // checkedListBox8
+            // label17
             // 
-            this.checkedListBox8.FormattingEnabled = true;
-            this.checkedListBox8.Location = new System.Drawing.Point(3, 131);
-            this.checkedListBox8.Name = "checkedListBox8";
-            this.checkedListBox8.Size = new System.Drawing.Size(120, 94);
-            this.checkedListBox8.TabIndex = 3;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(3, 3);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(92, 13);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "Resolution Quality";
+            // 
+            // checkedListBox7
+            // 
+            this.checkedListBox7.FormattingEnabled = true;
+            this.checkedListBox7.Location = new System.Drawing.Point(3, 18);
+            this.checkedListBox7.Name = "checkedListBox7";
+            this.checkedListBox7.Size = new System.Drawing.Size(120, 94);
+            this.checkedListBox7.TabIndex = 0;
             // 
             // panel5
             // 
@@ -440,6 +477,91 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(160, 326);
             this.panel5.TabIndex = 16;
+            // 
+            // checkedListBox20
+            // 
+            this.checkedListBox20.FormattingEnabled = true;
+            this.checkedListBox20.Location = new System.Drawing.Point(5, 707);
+            this.checkedListBox20.Name = "checkedListBox20";
+            this.checkedListBox20.Size = new System.Drawing.Size(120, 94);
+            this.checkedListBox20.TabIndex = 13;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(5, 691);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(84, 13);
+            this.label27.TabIndex = 12;
+            this.label27.Text = "Battery Capacity";
+            // 
+            // checkedListBox19
+            // 
+            this.checkedListBox19.FormattingEnabled = true;
+            this.checkedListBox19.Location = new System.Drawing.Point(5, 590);
+            this.checkedListBox19.Name = "checkedListBox19";
+            this.checkedListBox19.Size = new System.Drawing.Size(120, 94);
+            this.checkedListBox19.TabIndex = 11;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(5, 574);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(89, 13);
+            this.label26.TabIndex = 10;
+            this.label26.Text = "Headphone Jack";
+            // 
+            // checkedListBox18
+            // 
+            this.checkedListBox18.FormattingEnabled = true;
+            this.checkedListBox18.Location = new System.Drawing.Point(5, 471);
+            this.checkedListBox18.Name = "checkedListBox18";
+            this.checkedListBox18.Size = new System.Drawing.Size(120, 94);
+            this.checkedListBox18.TabIndex = 9;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(5, 455);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(67, 13);
+            this.label25.TabIndex = 8;
+            this.label25.Text = "Ext. Keybard";
+            // 
+            // checkedListBox17
+            // 
+            this.checkedListBox17.FormattingEnabled = true;
+            this.checkedListBox17.Location = new System.Drawing.Point(5, 358);
+            this.checkedListBox17.Name = "checkedListBox17";
+            this.checkedListBox17.Size = new System.Drawing.Size(120, 94);
+            this.checkedListBox17.TabIndex = 7;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(5, 342);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(56, 13);
+            this.label24.TabIndex = 6;
+            this.label24.Text = "RAM (MB)";
+            // 
+            // checkedListBox16
+            // 
+            this.checkedListBox16.FormattingEnabled = true;
+            this.checkedListBox16.Location = new System.Drawing.Point(5, 245);
+            this.checkedListBox16.Name = "checkedListBox16";
+            this.checkedListBox16.Size = new System.Drawing.Size(120, 94);
+            this.checkedListBox16.TabIndex = 5;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(5, 229);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(132, 13);
+            this.label23.TabIndex = 4;
+            this.label23.Text = "Expandable Capacity (MB)";
             // 
             // checkedListBox9
             // 
@@ -485,34 +607,6 @@
             this.panel6.Size = new System.Drawing.Size(67, 45);
             this.panel6.TabIndex = 17;
             // 
-            // panel7
-            // 
-            this.panel7.AutoScroll = true;
-            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel7.Controls.Add(this.checkedListBox15);
-            this.panel7.Location = new System.Drawing.Point(733, 112);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(126, 100);
-            this.panel7.TabIndex = 18;
-            // 
-            // panel8
-            // 
-            this.panel8.AutoScroll = true;
-            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel8.Controls.Add(this.checkedListBox11);
-            this.panel8.Location = new System.Drawing.Point(119, 231);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(176, 142);
-            this.panel8.TabIndex = 19;
-            // 
-            // checkedListBox11
-            // 
-            this.checkedListBox11.FormattingEnabled = true;
-            this.checkedListBox11.Location = new System.Drawing.Point(3, 3);
-            this.checkedListBox11.Name = "checkedListBox11";
-            this.checkedListBox11.Size = new System.Drawing.Size(168, 94);
-            this.checkedListBox11.TabIndex = 0;
-            // 
             // checkedListBox12
             // 
             this.checkedListBox12.FormattingEnabled = true;
@@ -524,39 +618,15 @@
             this.checkedListBox12.Size = new System.Drawing.Size(59, 34);
             this.checkedListBox12.TabIndex = 0;
             // 
-            // label21
+            // panel7
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(3, 228);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(27, 13);
-            this.label21.TabIndex = 4;
-            this.label21.Text = "Size";
-            // 
-            // checkedListBox13
-            // 
-            this.checkedListBox13.FormattingEnabled = true;
-            this.checkedListBox13.Location = new System.Drawing.Point(3, 244);
-            this.checkedListBox13.Name = "checkedListBox13";
-            this.checkedListBox13.Size = new System.Drawing.Size(120, 94);
-            this.checkedListBox13.TabIndex = 5;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(3, 341);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(70, 13);
-            this.label22.TabIndex = 6;
-            this.label22.Text = "Touchscreen";
-            // 
-            // checkedListBox14
-            // 
-            this.checkedListBox14.FormattingEnabled = true;
-            this.checkedListBox14.Location = new System.Drawing.Point(3, 357);
-            this.checkedListBox14.Name = "checkedListBox14";
-            this.checkedListBox14.Size = new System.Drawing.Size(120, 94);
-            this.checkedListBox14.TabIndex = 7;
+            this.panel7.AutoScroll = true;
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel7.Controls.Add(this.checkedListBox15);
+            this.panel7.Location = new System.Drawing.Point(733, 112);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(126, 100);
+            this.panel7.TabIndex = 18;
             // 
             // checkedListBox15
             // 
@@ -566,90 +636,54 @@
             this.checkedListBox15.Size = new System.Drawing.Size(113, 79);
             this.checkedListBox15.TabIndex = 0;
             // 
-            // checkedListBox16
+            // panel8
             // 
-            this.checkedListBox16.FormattingEnabled = true;
-            this.checkedListBox16.Location = new System.Drawing.Point(5, 245);
-            this.checkedListBox16.Name = "checkedListBox16";
-            this.checkedListBox16.Size = new System.Drawing.Size(120, 94);
-            this.checkedListBox16.TabIndex = 5;
+            this.panel8.AutoScroll = true;
+            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel8.Controls.Add(this.manufacturerBox);
+            this.panel8.Location = new System.Drawing.Point(119, 231);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(176, 142);
+            this.panel8.TabIndex = 19;
             // 
-            // label23
+            // manufacturerBox
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(5, 229);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(132, 13);
-            this.label23.TabIndex = 4;
-            this.label23.Text = "Expandable Capacity (MB)";
+            this.manufacturerBox.FormattingEnabled = true;
+            this.manufacturerBox.Location = new System.Drawing.Point(3, 3);
+            this.manufacturerBox.Name = "manufacturerBox";
+            this.manufacturerBox.Size = new System.Drawing.Size(168, 94);
+            this.manufacturerBox.TabIndex = 0;
             // 
-            // checkedListBox17
+            // comboBox1
             // 
-            this.checkedListBox17.FormattingEnabled = true;
-            this.checkedListBox17.Location = new System.Drawing.Point(5, 358);
-            this.checkedListBox17.Name = "checkedListBox17";
-            this.checkedListBox17.Size = new System.Drawing.Size(120, 94);
-            this.checkedListBox17.TabIndex = 7;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Price",
+            "Phone Name",
+            "RAM",
+            "Internal Capacity"});
+            this.comboBox1.Location = new System.Drawing.Point(733, 235);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 21;
             // 
-            // label24
+            // orderByLabel
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(5, 342);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(56, 13);
-            this.label24.TabIndex = 6;
-            this.label24.Text = "RAM (MB)";
+            this.orderByLabel.AutoSize = true;
+            this.orderByLabel.Location = new System.Drawing.Point(734, 215);
+            this.orderByLabel.Name = "orderByLabel";
+            this.orderByLabel.Size = new System.Drawing.Size(45, 13);
+            this.orderByLabel.TabIndex = 20;
+            this.orderByLabel.Text = "order by";
             // 
-            // checkedListBox18
+            // backButton
             // 
-            this.checkedListBox18.FormattingEnabled = true;
-            this.checkedListBox18.Location = new System.Drawing.Point(5, 471);
-            this.checkedListBox18.Name = "checkedListBox18";
-            this.checkedListBox18.Size = new System.Drawing.Size(120, 94);
-            this.checkedListBox18.TabIndex = 9;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(5, 455);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(67, 13);
-            this.label25.TabIndex = 8;
-            this.label25.Text = "Ext. Keybard";
-            // 
-            // checkedListBox19
-            // 
-            this.checkedListBox19.FormattingEnabled = true;
-            this.checkedListBox19.Location = new System.Drawing.Point(5, 590);
-            this.checkedListBox19.Name = "checkedListBox19";
-            this.checkedListBox19.Size = new System.Drawing.Size(120, 94);
-            this.checkedListBox19.TabIndex = 11;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(5, 574);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(89, 13);
-            this.label26.TabIndex = 10;
-            this.label26.Text = "Headphone Jack";
-            // 
-            // checkedListBox20
-            // 
-            this.checkedListBox20.FormattingEnabled = true;
-            this.checkedListBox20.Location = new System.Drawing.Point(5, 707);
-            this.checkedListBox20.Name = "checkedListBox20";
-            this.checkedListBox20.Size = new System.Drawing.Size(120, 94);
-            this.checkedListBox20.TabIndex = 13;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(5, 691);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(84, 13);
-            this.label27.TabIndex = 12;
-            this.label27.Text = "Battery Capacity";
+            this.backButton.Location = new System.Drawing.Point(733, 347);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(46, 23);
+            this.backButton.TabIndex = 22;
+            this.backButton.Text = "back";
+            this.backButton.UseVisualStyleBackColor = true;
             // 
             // AdvancedSearch
             // 
@@ -657,6 +691,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(865, 382);
+            this.Controls.Add(this.backButton);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.orderByLabel);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
@@ -672,12 +709,13 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.searchButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AdvancedSearch";
             this.Text = "AdvancedSearch";
+            this.Load += new System.EventHandler(this.AdvancedSearch_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -699,11 +737,11 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox phoneFreqBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.CheckedListBox checkedListBox2;
+        private System.Windows.Forms.CheckedListBox phoneCoreBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
@@ -714,15 +752,15 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.CheckedListBox checkedListBox3;
+        private System.Windows.Forms.CheckedListBox OSBox;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.CheckedListBox checkedListBox6;
-        private System.Windows.Forms.CheckedListBox checkedListBox5;
+        private System.Windows.Forms.CheckedListBox opticalZoomBox;
+        private System.Windows.Forms.CheckedListBox cameraMPixBox;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.CheckedListBox checkedListBox4;
+        private System.Windows.Forms.CheckedListBox cameraNumBox;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.CheckedListBox checkedListBox14;
         private System.Windows.Forms.Label label22;
@@ -752,6 +790,9 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.CheckedListBox checkedListBox15;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.CheckedListBox checkedListBox11;
+        private System.Windows.Forms.CheckedListBox manufacturerBox;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label orderByLabel;
+        private System.Windows.Forms.Button backButton;
     }
 }
