@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.titleLabel = new System.Windows.Forms.Label();
             this.QuickSearchBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.advancedSearchButton = new System.Windows.Forms.Button();
             this.HintLabel = new System.Windows.Forms.Label();
             this.orLabel = new System.Windows.Forms.Label();
             this.orderByLabel = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.orderByComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // label1
+            // titleLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(199, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Game of Phones";
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.Location = new System.Drawing.Point(199, 9);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(86, 13);
+            this.titleLabel.TabIndex = 0;
+            this.titleLabel.Text = "Game of Phones";
             // 
             // QuickSearchBox
             // 
@@ -81,9 +81,9 @@
             this.HintLabel.AutoSize = true;
             this.HintLabel.Location = new System.Drawing.Point(29, 32);
             this.HintLabel.Name = "HintLabel";
-            this.HintLabel.Size = new System.Drawing.Size(251, 13);
+            this.HintLabel.Size = new System.Drawing.Size(265, 13);
             this.HintLabel.TabIndex = 4;
-            this.HintLabel.Text = "Enter manufacter, phone name, seperate by spaces";
+            this.HintLabel.Text = "Enter manufacter or phone name, seperate by commas";
             // 
             // orLabel
             // 
@@ -103,34 +103,39 @@
             this.orderByLabel.TabIndex = 6;
             this.orderByLabel.Text = "order by";
             // 
-            // comboBox1
+            // orderByComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Price",
+            this.orderByComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.orderByComboBox.FormattingEnabled = true;
+            this.orderByComboBox.Items.AddRange(new object[] {
+            "None",
+            "Price (Low-High)",
+            "Price (High-Low)",
             "Phone Name",
-            "RAM",
-            "Internal Capacity"});
-            this.comboBox1.Location = new System.Drawing.Point(80, 71);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 7;
+            "RAM (High-Low)",
+            "Internal Capacity (High-Low)",
+            "Manufacturer (A-Z)"});
+            this.orderByComboBox.Location = new System.Drawing.Point(80, 71);
+            this.orderByComboBox.Name = "orderByComboBox";
+            this.orderByComboBox.Size = new System.Drawing.Size(121, 21);
+            this.orderByComboBox.TabIndex = 7;
             // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(505, 157);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.orderByComboBox);
             this.Controls.Add(this.orderByLabel);
             this.Controls.Add(this.orLabel);
             this.Controls.Add(this.HintLabel);
             this.Controls.Add(this.advancedSearchButton);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.QuickSearchBox);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.titleLabel);
             this.Name = "MainPage";
             this.Text = "MainPage";
+            this.Load += new System.EventHandler(this.MainPage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,13 +143,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.TextBox QuickSearchBox;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Button advancedSearchButton;
         private System.Windows.Forms.Label HintLabel;
         private System.Windows.Forms.Label orLabel;
         private System.Windows.Forms.Label orderByLabel;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox orderByComboBox;
     }
 }

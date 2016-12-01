@@ -14,6 +14,7 @@ namespace GameOfPhones
     public partial class Test : Form
     {
         public string query;
+        public string orderPart;
         FullInfo FI;
         Compare comp = new Compare();
         public List<Phone> phoneList;
@@ -26,9 +27,10 @@ namespace GameOfPhones
             phoneList = new List<Phone>();
         }
 
-        public Test(string queryy)
+        public Test(string queryy, string theOrderPart)
         {
             query = queryy;
+            orderPart = theOrderPart;
             InitializeComponent();
             phoneList = new List<Phone>();
         }
@@ -48,52 +50,115 @@ namespace GameOfPhones
             List<int> phoneIDArray = new List<int>();
             foreach (DataRow dr in dt.Rows)
             {
-                phoneIDArray.Add((int)dr.ItemArray[0]);
+                phoneIDArray.Add((int)dr.ItemArray[0]);//just the phone ID
             }
             //have it run a new query to return all individual/unique phone information for the results page
             //based on phoneID array
             StringBuilder sb = new StringBuilder();
-            sb.Append("SELECT Phone.phoneID,Manufacturer.name,Phone.name,CPU.frequency,CPU.numCores,Phone.RAMcapacity,Phone.price,OS.name,Phone.pictureURL,Phone.internalCapacity from Phone inner join Manufacturer on Manufacturer.manufacturerID=Phone.manufacturerID inner join OS on OS.OSID=Phone.OSID inner join CPU on CPU.CPUID=Phone.CPUID where Phone.phoneID=");
+            sb.Append("SELECT Phone.phoneID," +//0
+            "Manufacturer.name,Phone.name,CPU.frequency," +//1,2,3
+            "CPU.numCores,Phone.RAMcapacity,Phone.price," +//4,5,6
+            "OS.name,Phone.pictureURL,Phone.internalCapacity," +//7,8,9
+            "CPU.cpuID,Manufacturer.manufacturerID,OS.OSID," +//10,11,12
+            "Phone.analogAudioJack,Phone.batteryCapacity," +//13,14
+            "Phone.chargePortID,ChargePort.name,CPU.model," +//15,16,17
+            "CPU.brand,Display.displayID,Display.displayType," +//18,19,20
+            "Display.isTouchscreen,Display.heightPixels," +//21,22
+            "Display.widthPixels,Display.sizeInches,Display.DPI," +//23,24,25
+            "Phone.monthReleased,Phone.yearReleased," +//26,27
+            "Phone.expandableCapacity,Phone.hasExternalKeyboard," +//28,29
+            "Phone.isUnlocked,Phone.numExternalSpeakers,SIM.numCards," +//30,31,32
+            "Phone.physicalHomeButton,SIM.type,Phone.stillAvailable,Phone.weight" +//33,34,35,36
+            " from Phone" +
+            " inner join Manufacturer on Manufacturer.manufacturerID=Phone.manufacturerID" +
+            " inner join OS on OS.OSID=Phone.OSID" +
+            " inner join CPU on CPU.CPUID=Phone.CPUID" +
+            " inner join ChargePort on ChargePort.chargePortID=Phone.chargePortID" +
+            " inner join Display on Display.displayID=Phone.displayID" +
+            " inner join SIM on SIM.phoneID=Phone.phoneID" +
+            " where Phone.phoneID=");
+            
             foreach (int i in phoneIDArray)
             {
                 sb.Append("" + i + " or ");
             }
+            if (phoneIDArray.Count == 0)
+                return;
             string tempQuery = sb.ToString();
             tempQuery = tempQuery.Substring(0, tempQuery.Length - 4);
+            tempQuery = tempQuery + orderPart;
             phoneDataSet = this.runQuery(tempQuery);
             DataTable dt2 = phoneDataSet.Tables[0];
             foreach (DataRow dr in dt2.Rows)
             {
                 int i = 0;
                 Phone p = new Phone();
-                p.phoneID = (int)dr.ItemArray[i++];
+                p.phoneID = (int)dr.ItemArray[i++];//0
                 p.manufactureName = (string)dr.ItemArray[i++];
                 p.name = (string)dr.ItemArray[i++];
                 p.CPUFreq = (float)dr.ItemArray[i++];
                 p.CPUNumCores = (int)dr.ItemArray[i++];
-                p.RAMcapacity = (int)dr.ItemArray[i++];
+                p.RAMcapacity = (int)dr.ItemArray[i++];//5
                 p.price = (float)dr.ItemArray[i++];
                 p.OSName = (string)dr.ItemArray[i++];
                 p.pictureURL = (string)dr.ItemArray[i++];
                 p.internalCapacity = (int)dr.ItemArray[i++];
+                p.CPUID = (int)dr.ItemArray[i++];//10
+                p.manufacturerID = (int)dr.ItemArray[i++];
+                p.OSID = (int)dr.ItemArray[i++];
+                p.analogAudioJack = (bool)dr.ItemArray[i++];
+                p.batteryCapacity = (int)dr.ItemArray[i++];
+                p.chargePortID = (int)dr.ItemArray[i++];//15
+                p.chargePortname = (string)dr.ItemArray[i++];
+                p.CPUModel = (string)dr.ItemArray[i++];
+                p.CPUName = (string)dr.ItemArray[i++];
+                p.displayID = (int)dr.ItemArray[i++];
+                p.displayType = (string)dr.ItemArray[i++];//20
+                p.displayIsTouchScreen = (bool)dr.ItemArray[i++];
+                p.displayHeightPixels = (int)dr.ItemArray[i++];
+                p.displayWidthPixels = (int)dr.ItemArray[i++];
+                p.displaySizeInches = (float)dr.ItemArray[i++];
+                p.displayDpi = (int)dr.ItemArray[i++];//25
+                p.monthReleased = (int)dr.ItemArray[i++];
+                p.yearReleased = (int)dr.ItemArray[i++];
+                p.expandableCapacity = (int)dr.ItemArray[i++];
+                p.hasExternalKeyboard = (bool)dr.ItemArray[i++];
+                p.isUnlocked = (bool)dr.ItemArray[i++];//30
+                p.numExternalSpeakers = (int)dr.ItemArray[i++];
+                p.numSimCards = (int)dr.ItemArray[i++];
+                p.physicalHomeButton = (bool)dr.ItemArray[i++];
+                p.simCardType = (string)dr.ItemArray[i++];
+                p.stillAvailable = (bool)dr.ItemArray[i++];//35
+                p.weight = (float)dr.ItemArray[i++];
                 this.phoneList.Add(p);
             }
 
             //parse phone GSMCDMA type
             this.isGSMCDMA();
             //parse arrayLists
-            //this.addArrayInformation();
+            this.addArrayInformation();
             //add to results display
             foreach (Phone p in phoneList)
             {
-                this.addResult(p.manufactureName, p.name, "" + p.CPUFreq, "" + p.CPUNumCores, "" + p.RAMcapacity, p.isGSMCDMA, "" + p.price, p.OSName, p.pictureURL, "" + p.internalCapacity);
+                this.addResult(p.manufactureName, "" + p.phoneID, p.name, "" + p.CPUFreq, "" + p.CPUNumCores, "" + p.RAMcapacity, p.isGSMCDMA, "" + p.price, p.OSName, p.pictureURL, "" + p.internalCapacity);
             }
         }
         private void isGSMCDMA()
         {
             //create dataset list of GSM and CDMA phones
-            string GSMquery = "select DISTINCT Phone.phoneID, Network.type from Phone inner join PhoneCarrier on Phone.phoneID=PhoneCarrier.phoneID inner join Carrier on Carrier.carrierID=PhoneCarrier.carrierID inner join Network on Network.networkID=Carrier.NetworkID inner join SIM on SIM.phoneID=Phone.phoneID where Network.type='GSM'";
-            string CDMAquery = "select DISTINCT Phone.phoneID, Network.type from Phone inner join PhoneCarrier on Phone.phoneID=PhoneCarrier.phoneID inner join Carrier on Carrier.carrierID=PhoneCarrier.carrierID inner join Network on Network.networkID=Carrier.NetworkID inner join SIM on SIM.phoneID=Phone.phoneID where Network.type='CDMA'";
+            string GSMquery = "select DISTINCT Phone.phoneID, Network.type" +
+            " from Phone" +
+            " inner join PhoneCarrier on Phone.phoneID=PhoneCarrier.phoneID" +
+            " inner join Carrier on Carrier.carrierID=PhoneCarrier.carrierID" +
+            " inner join Network on Network.networkID=Carrier.NetworkID" +
+            " inner join SIM on SIM.phoneID=Phone.phoneID" +
+            " where Network.type='GSM'";
+            string CDMAquery = "select DISTINCT Phone.phoneID, Network.type" +
+            " from Phone inner join PhoneCarrier on Phone.phoneID=PhoneCarrier.phoneID" +
+            " inner join Carrier on Carrier.carrierID=PhoneCarrier.carrierID" +
+            " inner join Network on Network.networkID=Carrier.NetworkID" +
+            " inner join SIM on SIM.phoneID=Phone.phoneID" +
+            " where Network.type='CDMA'";
             DataSet GSMDataSet = new DataSet();
             DataSet CDMADataset = new DataSet();
 
@@ -128,6 +193,7 @@ namespace GameOfPhones
         }
 
         private void addResult(string manufactureName,
+            string phoneID,
             string phoneName,
             string CpuFreq,
             string CpuCoreNum,
@@ -231,6 +297,8 @@ namespace GameOfPhones
             newPhoneFullInfoLink.TabIndex = 1;
             newPhoneFullInfoLink.TabStop = true;
             newPhoneFullInfoLink.Text = manufactureName + " " + phoneName;
+            newPhoneFullInfoLink.LinkClicked += new LinkLabelLinkClickedEventHandler(newPhoneFullInfoLink_LinkClicked);
+            newPhoneFullInfoLink.Links[0].Description = phoneID;
             // 
             // phonePictureBox
             // 
@@ -262,6 +330,19 @@ namespace GameOfPhones
 
             this.tableLayoutPanel1.Controls.Add(newPhoneInfoPanel);
             
+        }
+
+        void newPhoneFullInfoLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FI = new FullInfo();
+            string temp = e.Link.Description;
+            foreach (Phone p in phoneList)
+            {
+                string phoneIDD = "" + p.phoneID;
+                if (phoneIDD == temp)
+                    FI.samplePhone = p;
+            }
+            FI.ShowDialog();
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -303,7 +384,13 @@ namespace GameOfPhones
         {
             //run through list of camera
             DataSet cameraDataSet = new DataSet();
-            string cameraQuery = "select Phone.phoneID, Camera.cameraID, Camera.resolutionWidthPixels,Camera.resolutionHeightPixels,Camera.mPixels,Camera.fps,Camera.opticalZoom,Camera.location from Phone inner join PhoneCamera on Phone.phoneID=PhoneCamera.phoneID inner join Camera on Camera.cameraID=PhoneCamera.cameraID";
+            string cameraQuery = "select Phone.phoneID," +
+            " Camera.cameraID, Camera.resolutionWidthPixels," +
+            "Camera.resolutionHeightPixels,Camera.mPixels,Camera.fps," +
+            "Camera.opticalZoom,Camera.location" +
+            " from Phone" +
+            " inner join PhoneCamera on Phone.phoneID=PhoneCamera.phoneID" +
+            " inner join Camera on Camera.cameraID=PhoneCamera.cameraID";
             foreach (Phone p in phoneList)
             {
                 cameraDataSet = runQuery(cameraQuery);
@@ -322,12 +409,17 @@ namespace GameOfPhones
                         c.fps = (int)dr.ItemArray[5];
                         c.opticalZoom = (int)dr.ItemArray[6];
                         c.location = (string)dr.ItemArray[7];
+                        p.cameraList.Add(c);
                     }
                 }
             }
             //run through list of carriers
             DataSet carrierDataSet = new DataSet();
-            string carrierQuery = "select PhoneCarrier.phoneID,Carrier.carrierID,Carrier.name,Network.networkID,Network.type from PhoneCarrier inner join Carrier on Carrier.carrierID=PhoneCarrier.carrierID inner join Network on Network.networkID=Carrier.networkID";
+            string carrierQuery = "select PhoneCarrier.phoneID," +
+            "Carrier.carrierID,Carrier.name,Network.networkID,Network.type" +
+            " from PhoneCarrier" +
+            " inner join Carrier on Carrier.carrierID=PhoneCarrier.carrierID" +
+            " inner join Network on Network.networkID=Carrier.networkID";
             foreach (Phone p in phoneList)
             {
                 carrierDataSet = runQuery(carrierQuery);
@@ -349,7 +441,10 @@ namespace GameOfPhones
             }
             //run through list of sensors
             DataSet sensorDataSet = new DataSet();
-            string sensorQuery = "select PhoneSensor.phoneID,Sensor.sensorID,Sensor.name from PhoneSensor inner join Sensor on Sensor.sensorID=PhoneSensor.sensorID";
+            string sensorQuery = "select PhoneSensor.phoneID," +
+            "Sensor.sensorID,Sensor.name" +
+            " from PhoneSensor" +
+            " inner join Sensor on Sensor.sensorID=PhoneSensor.sensorID";
             foreach (Phone p in phoneList)
             {
                 sensorDataSet = runQuery(sensorQuery);
@@ -369,7 +464,8 @@ namespace GameOfPhones
             }
             //run through list of feature
             DataSet featureDataSet = new DataSet();
-            string featureQuery = "select PhoneFeature.phoneID,Feature.featureID,Feature.name from PhoneFeature inner join Feature on Feature.featureID=PhoneFeature.featureID";
+            string featureQuery = "select PhoneFeature.phoneID,Feature.featureID,Feature.name" +
+            " from PhoneFeature inner join Feature on Feature.featureID=PhoneFeature.featureID";
             foreach (Phone p in phoneList)
             {
                 featureDataSet = runQuery(featureQuery);

@@ -130,15 +130,15 @@ namespace GameOfPhones
 
         public string displayType { get; set; }
 
-        public bool isTouchScreen { get; set; }
+        public bool displayIsTouchScreen { get; set; }
 
-        public float sizeInches { get; set; }
+        public float displaySizeInches { get; set; }
 
-        public int heightPixels { get; set; }
+        public int displayHeightPixels { get; set; }
 
-        public int widthPixels { get; set; }
+        public int displayWidthPixels { get; set; }
 
-        public int dpi { get; set; }
+        public int displayDpi { get; set; }
 
         public List<Camera> cameraList;
 

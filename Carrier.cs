@@ -24,7 +24,7 @@ namespace GameOfPhones
 
         public override string ToString()
         {
-            return carrierID + " - " + networkID + " - " + name;
+            return name + " - " + "(" + networkName + ")";
         }
     }
 }
