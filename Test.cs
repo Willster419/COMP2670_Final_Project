@@ -242,6 +242,8 @@ namespace GameOfPhones
             newCompareCheckBox.TabIndex = 7;
             newCompareCheckBox.Text = "compare";
             newCompareCheckBox.UseVisualStyleBackColor = true;
+            newCompareCheckBox.Visible = false;
+            newCompareCheckBox.Enabled = false;
             // 
             // OSLabel
             // 
