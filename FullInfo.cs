@@ -120,7 +120,7 @@ namespace GameOfPhones
                 cameraTableLayout.Controls.Add(cameraOpticalZoomValue);
 
                 Label cameraMPixTitle = new Label();
-                cameraMPixTitle.Text = "Camera " + cameraCounter + " MPixel";
+                cameraMPixTitle.Text = "Camera " + cameraCounter + " Megapixel";
                 cameraMPixTitle.AutoSize = true;
                 cameraTableLayout.Controls.Add(cameraMPixTitle);
 

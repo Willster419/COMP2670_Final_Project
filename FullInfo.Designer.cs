@@ -324,9 +324,9 @@
             this.displaySizeTitle.AutoSize = true;
             this.displaySizeTitle.Location = new System.Drawing.Point(4, 35);
             this.displaySizeTitle.Name = "displaySizeTitle";
-            this.displaySizeTitle.Size = new System.Drawing.Size(42, 13);
+            this.displaySizeTitle.Size = new System.Drawing.Size(44, 13);
             this.displaySizeTitle.TabIndex = 2;
-            this.displaySizeTitle.Text = "size (in)";
+            this.displaySizeTitle.Text = "Size (in)";
             // 
             // displayTouchscreenTitle
             // 
@@ -595,18 +595,18 @@
             this.extKeyTitle.AutoSize = true;
             this.extKeyTitle.Location = new System.Drawing.Point(4, 222);
             this.extKeyTitle.Name = "extKeyTitle";
-            this.extKeyTitle.Size = new System.Drawing.Size(93, 13);
+            this.extKeyTitle.Size = new System.Drawing.Size(99, 13);
             this.extKeyTitle.TabIndex = 13;
-            this.extKeyTitle.Text = "External Keyboard";
+            this.extKeyTitle.Text = "External Keyboard?";
             // 
             // numSpeakersTitle
             // 
             this.numSpeakersTitle.AutoSize = true;
             this.numSpeakersTitle.Location = new System.Drawing.Point(4, 239);
             this.numSpeakersTitle.Name = "numSpeakersTitle";
-            this.numSpeakersTitle.Size = new System.Drawing.Size(74, 13);
+            this.numSpeakersTitle.Size = new System.Drawing.Size(104, 13);
             this.numSpeakersTitle.TabIndex = 14;
-            this.numSpeakersTitle.Text = "NumSpeakers";
+            this.numSpeakersTitle.Text = "Number of Speakers";
             // 
             // analogHeadphoneJackTitle
             // 
@@ -651,7 +651,7 @@
             this.battCapTitle.Name = "battCapTitle";
             this.battCapTitle.Size = new System.Drawing.Size(114, 13);
             this.battCapTitle.TabIndex = 19;
-            this.battCapTitle.Text = "Battery Capacity (Mah)";
+            this.battCapTitle.Text = "Battery Capacity (mAh)";
             // 
             // manufactureValue
             // 

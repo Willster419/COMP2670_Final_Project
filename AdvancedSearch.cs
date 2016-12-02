@@ -33,6 +33,7 @@ namespace GameOfPhones
         private string phoneQuery7;
         private string networkQuery;
         private string carrierQuery;
+        public string query;
         MySqlConnection conn;
         DataSet phoneDataSet;
 
@@ -42,22 +43,20 @@ namespace GameOfPhones
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void searchButton_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
-        {
-            /*if (e.NewValue == CheckState.Checked)
-                for (int ix = 0; ix < checkedListBox1.Items.Count; ++ix)
-                    if (e.Index != ix) checkedListBox1.SetItemChecked(ix, false);
-             */
+            
         }
 
         private void AdvancedSearch_Load(object sender, EventArgs e)
         {
+            orderByComboBox.SelectedIndex = 1;
             //load each table
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
