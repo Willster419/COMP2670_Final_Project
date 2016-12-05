@@ -79,9 +79,12 @@ namespace GameOfPhones
         {
             AS = new AdvancedSearch();
             AS.ShowDialog();
+            if (!AS.cont)
+            {
+                return;
+            }
             //grab the query from the advanced table and put it into the results form
-
-            t = new Test();
+            t = new Test(AS.query,AS.orderPart);
             t.ShowDialog();
         }
 

@@ -379,8 +379,9 @@
             this.displayTouchscreenBox.FormattingEnabled = true;
             this.displayTouchscreenBox.Location = new System.Drawing.Point(3, 357);
             this.displayTouchscreenBox.Name = "displayTouchscreenBox";
-            this.displayTouchscreenBox.Size = new System.Drawing.Size(120, 94);
+            this.displayTouchscreenBox.Size = new System.Drawing.Size(120, 34);
             this.displayTouchscreenBox.TabIndex = 7;
+            this.displayTouchscreenBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.displayTouchscreenBox_ItemCheck);
             // 
             // displayTouchscreenLabel
             // 
@@ -476,18 +477,18 @@
             this.phonePriceHighLabel.AutoSize = true;
             this.phonePriceHighLabel.Location = new System.Drawing.Point(5, 64);
             this.phonePriceHighLabel.Name = "phonePriceHighLabel";
-            this.phonePriceHighLabel.Size = new System.Drawing.Size(29, 13);
+            this.phonePriceHighLabel.Size = new System.Drawing.Size(49, 13);
             this.phonePriceHighLabel.TabIndex = 17;
-            this.phonePriceHighLabel.Text = "High";
+            this.phonePriceHighLabel.Text = "High limit";
             // 
             // phonePriceLowLabel
             // 
             this.phonePriceLowLabel.AutoSize = true;
             this.phonePriceLowLabel.Location = new System.Drawing.Point(5, 22);
             this.phonePriceLowLabel.Name = "phonePriceLowLabel";
-            this.phonePriceLowLabel.Size = new System.Drawing.Size(27, 13);
+            this.phonePriceLowLabel.Size = new System.Drawing.Size(47, 13);
             this.phonePriceLowLabel.TabIndex = 16;
-            this.phonePriceLowLabel.Text = "Low";
+            this.phonePriceLowLabel.Text = "Low limit";
             // 
             // phonePriceHighTB
             // 
@@ -527,8 +528,9 @@
             this.phoneHeadphoneJackBox.FormattingEnabled = true;
             this.phoneHeadphoneJackBox.Location = new System.Drawing.Point(5, 590);
             this.phoneHeadphoneJackBox.Name = "phoneHeadphoneJackBox";
-            this.phoneHeadphoneJackBox.Size = new System.Drawing.Size(120, 94);
+            this.phoneHeadphoneJackBox.Size = new System.Drawing.Size(120, 34);
             this.phoneHeadphoneJackBox.TabIndex = 11;
+            this.phoneHeadphoneJackBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.phoneHeadphoneJackBox_ItemCheck);
             // 
             // headphoneJackLabel
             // 
@@ -545,8 +547,9 @@
             this.phoneExternalKeyboardBox.FormattingEnabled = true;
             this.phoneExternalKeyboardBox.Location = new System.Drawing.Point(5, 471);
             this.phoneExternalKeyboardBox.Name = "phoneExternalKeyboardBox";
-            this.phoneExternalKeyboardBox.Size = new System.Drawing.Size(120, 94);
+            this.phoneExternalKeyboardBox.Size = new System.Drawing.Size(120, 34);
             this.phoneExternalKeyboardBox.TabIndex = 9;
+            this.phoneExternalKeyboardBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.phoneExternalKeyboardBox_ItemCheck);
             // 
             // extKeyboardLabel
             // 
