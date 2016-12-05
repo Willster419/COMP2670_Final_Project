@@ -70,12 +70,12 @@ namespace GameOfPhones
             "Phone.isUnlocked,Phone.numExternalSpeakers,SIM.numCards," +//30,31,32
             "Phone.physicalHomeButton,SIM.type,Phone.stillAvailable,Phone.weight" +//33,34,35,36
             " from Phone" +
-            " inner join Manufacturer on Manufacturer.manufacturerID=Phone.manufacturerID" +
-            " inner join OS on OS.OSID=Phone.OSID" +
-            " inner join CPU on CPU.CPUID=Phone.CPUID" +
-            " inner join ChargePort on ChargePort.chargePortID=Phone.chargePortID" +
-            " inner join Display on Display.displayID=Phone.displayID" +
-            " inner join SIM on SIM.phoneID=Phone.phoneID" +
+            " left join Manufacturer on Manufacturer.manufacturerID=Phone.manufacturerID" +
+            " left join OS on OS.OSID=Phone.OSID" +
+            " left join CPU on CPU.CPUID=Phone.CPUID" +
+            " left join ChargePort on ChargePort.chargePortID=Phone.chargePortID" +
+            " left join Display on Display.displayID=Phone.displayID" +
+            " left join SIM on SIM.phoneID=Phone.phoneID" +
             " where Phone.phoneID=");
             
             foreach (int i in phoneIDArray)
