@@ -124,11 +124,11 @@
       <DependentUpon>ResultsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Sensor.cs" />
-    <Compile Include="Test.cs">
+    <Compile Include="TheResultsPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Test.Designer.cs">
-      <DependentUpon>Test.cs</DependentUpon>
+    <Compile Include="TheResultsPage.Designer.cs">
+      <DependentUpon>TheResultsPage.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AdvancedSearch.resx">
       <DependentUpon>AdvancedSearch.cs</DependentUpon>
@@ -161,8 +161,8 @@
     <EmbeddedResource Include="ResultsForm.resx">
       <DependentUpon>ResultsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Test.resx">
-      <DependentUpon>Test.cs</DependentUpon>
+    <EmbeddedResource Include="TheResultsPage.resx">
+      <DependentUpon>TheResultsPage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />

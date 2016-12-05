@@ -13,7 +13,7 @@ namespace GameOfPhones
     {
         ResultsForm RF;
         AdvancedSearch AS;
-        Test t;
+        TheResultsPage t;
         public MainPage()
         {
             InitializeComponent();
@@ -71,7 +71,7 @@ namespace GameOfPhones
             //RF = new ResultsForm();
             //RF.ShowDialog();
 
-            t = new Test(query, orderPart);
+            t = new TheResultsPage(query, orderPart);
             t.ShowDialog();
         }
 
@@ -84,7 +84,7 @@ namespace GameOfPhones
                 return;
             }
             //grab the query from the advanced table and put it into the results form
-            t = new Test(AS.query,AS.orderPart);
+            t = new TheResultsPage(AS.query,AS.orderPart);
             t.ShowDialog();
         }
 

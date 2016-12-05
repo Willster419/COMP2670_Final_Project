@@ -134,7 +134,7 @@
             this.Controls.Add(this.QuickSearchBox);
             this.Controls.Add(this.titleLabel);
             this.Name = "MainPage";
-            this.Text = "MainPage";
+            this.Text = "Welcome";
             this.Load += new System.EventHandler(this.MainPage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

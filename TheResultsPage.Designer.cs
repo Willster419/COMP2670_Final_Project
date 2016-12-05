@@ -1,6 +1,6 @@
 ﻿namespace GameOfPhones
 {
-    partial class Test
+    partial class TheResultsPage
     {
         /// <summary>
         /// Required designer variable.
@@ -39,7 +39,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 318F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 319F));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
@@ -58,7 +58,7 @@
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
-            // Test
+            // TheResultsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -66,8 +66,8 @@
             this.ClientSize = new System.Drawing.Size(1090, 462);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "Test";
-            this.Text = "Test";
+            this.Name = "TheResultsPage";
+            this.Text = "Search Results";
             this.Load += new System.EventHandler(this.Test_Load);
             this.ResumeLayout(false);
 

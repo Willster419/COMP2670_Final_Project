@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace GameOfPhones
 {
-    public partial class Test : Form
+    public partial class TheResultsPage : Form
     {
         public string query;
         public string orderPart;
@@ -21,13 +21,13 @@ namespace GameOfPhones
         MySqlConnection conn;
         DataSet phoneDataSet;
 
-        public Test()
+        public TheResultsPage()
         {
             InitializeComponent();
             phoneList = new List<Phone>();
         }
 
-        public Test(string queryy, string theOrderPart)
+        public TheResultsPage(string queryy, string theOrderPart)
         {
             query = queryy;
             orderPart = theOrderPart;
