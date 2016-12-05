@@ -175,9 +175,9 @@
             this.CPUFrequencyLabel.AutoSize = true;
             this.CPUFrequencyLabel.Location = new System.Drawing.Point(3, 0);
             this.CPUFrequencyLabel.Name = "CPUFrequencyLabel";
-            this.CPUFrequencyLabel.Size = new System.Drawing.Size(57, 13);
+            this.CPUFrequencyLabel.Size = new System.Drawing.Size(87, 13);
             this.CPUFrequencyLabel.TabIndex = 3;
-            this.CPUFrequencyLabel.Text = "Frequency";
+            this.CPUFrequencyLabel.Text = "Frequency (GHz)";
             // 
             // OSCatagoryLabel
             // 
@@ -284,7 +284,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(3, 341);
+            this.label16.Location = new System.Drawing.Point(0, 228);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(84, 13);
             this.label16.TabIndex = 20;
@@ -298,9 +298,9 @@
             "1",
             "2",
             "3"});
-            this.cameraOpticalZoomBox.Location = new System.Drawing.Point(3, 244);
+            this.cameraOpticalZoomBox.Location = new System.Drawing.Point(3, 133);
             this.cameraOpticalZoomBox.Name = "cameraOpticalZoomBox";
-            this.cameraOpticalZoomBox.Size = new System.Drawing.Size(48, 94);
+            this.cameraOpticalZoomBox.Size = new System.Drawing.Size(74, 94);
             this.cameraOpticalZoomBox.TabIndex = 19;
             // 
             // cameraMPixBox
@@ -311,15 +311,15 @@
             "1",
             "1.5",
             "2"});
-            this.cameraMPixBox.Location = new System.Drawing.Point(3, 128);
+            this.cameraMPixBox.Location = new System.Drawing.Point(3, 20);
             this.cameraMPixBox.Name = "cameraMPixBox";
-            this.cameraMPixBox.Size = new System.Drawing.Size(48, 94);
+            this.cameraMPixBox.Size = new System.Drawing.Size(74, 94);
             this.cameraMPixBox.TabIndex = 18;
             // 
             // cameraOpticalZoomLabel
             // 
             this.cameraOpticalZoomLabel.AutoSize = true;
-            this.cameraOpticalZoomLabel.Location = new System.Drawing.Point(3, 228);
+            this.cameraOpticalZoomLabel.Location = new System.Drawing.Point(3, 117);
             this.cameraOpticalZoomLabel.Name = "cameraOpticalZoomLabel";
             this.cameraOpticalZoomLabel.Size = new System.Drawing.Size(74, 13);
             this.cameraOpticalZoomLabel.TabIndex = 17;
@@ -328,7 +328,7 @@
             // cameraMPixelsLabel
             // 
             this.cameraMPixelsLabel.AutoSize = true;
-            this.cameraMPixelsLabel.Location = new System.Drawing.Point(3, 112);
+            this.cameraMPixelsLabel.Location = new System.Drawing.Point(3, 4);
             this.cameraMPixelsLabel.Name = "cameraMPixelsLabel";
             this.cameraMPixelsLabel.Size = new System.Drawing.Size(47, 13);
             this.cameraMPixelsLabel.TabIndex = 16;
@@ -337,11 +337,12 @@
             // cameraNumCamerasLabel
             // 
             this.cameraNumCamerasLabel.AutoSize = true;
-            this.cameraNumCamerasLabel.Location = new System.Drawing.Point(3, 0);
+            this.cameraNumCamerasLabel.Location = new System.Drawing.Point(3, 268);
             this.cameraNumCamerasLabel.Name = "cameraNumCamerasLabel";
             this.cameraNumCamerasLabel.Size = new System.Drawing.Size(69, 13);
             this.cameraNumCamerasLabel.TabIndex = 15;
             this.cameraNumCamerasLabel.Text = "# of cameras";
+            this.cameraNumCamerasLabel.Visible = false;
             // 
             // cameraNumBox
             // 
@@ -351,10 +352,11 @@
             "1",
             "2",
             "3+"});
-            this.cameraNumBox.Location = new System.Drawing.Point(3, 15);
+            this.cameraNumBox.Location = new System.Drawing.Point(3, 283);
             this.cameraNumBox.Name = "cameraNumBox";
-            this.cameraNumBox.Size = new System.Drawing.Size(48, 94);
+            this.cameraNumBox.Size = new System.Drawing.Size(74, 4);
             this.cameraNumBox.TabIndex = 0;
+            this.cameraNumBox.Visible = false;
             // 
             // displayPanel
             // 

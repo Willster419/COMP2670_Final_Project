@@ -13,33 +13,34 @@ namespace GameOfPhones
 {
     public partial class AdvancedSearch : Form
     {
-        private string cpuFreqQuery = "Select distinct CPU.frequency from CPU";
-        private string cpuNumCoresQuery = "Select distinct CPU.numCores from CPU";
-        private string osQuery= "Select distinct OS.name from OS";
-        private string manufactureQuery = "Select distinct Manufacturer.name from Manufacturer";
+        private string cpuFreqQuery = "Select distinct CPU.frequency from CPU order by CPU.frequency asc";
+        private string cpuNumCoresQuery = "Select distinct CPU.numCores from CPU order by CPU.numCores asc";
+        private string osQuery= "Select distinct OS.name from OS order by OS.name asc";
+        private string manufactureQuery = "Select distinct Manufacturer.name from Manufacturer order by Manufacturer.name asc";
         //private string cameraSumQuery = "select count(PhoneCamera.cameraID) FROM PhoneCamera where PhoneCamera.phoneID=(SELECT Phone.phoneID from Phone)";//might not work
-        private string cameraSumQuery = "select count(PhoneCamera.cameraID) FROM PhoneCamera GROUP BY PhoneCamera.phoneID";//this one will prolly work
-        private string cameraMPixQuery = "Select distinct Camera.mPixels from Camera";
-        private string cameraOpticalZoomQuery= "Select distinct Camera.opticalZoom from Camera";
-        private string displayResQuery = "SELECT DISTINCT Display.heightPixels, Display.widthPixels from Display";
-        private string displayTypeQuery= "Select distinct Display.displayType from Display";
-        private string displaySizeQuery = "Select distinct Display.sizeInches from Display";
+        private string cameraSumQuery = "select distinct count(PhoneCamera.cameraID) FROM PhoneCamera GROUP BY PhoneCamera.phoneID";//this one will prolly work
+        private string cameraMPixQuery = "Select distinct Camera.mPixels from Camera order by Camera.mPixels asc";
+        private string cameraOpticalZoomQuery= "Select distinct Camera.opticalZoom from Camera order by Camera.opticalZoom asc";
+        private string displayResQuery = "SELECT DISTINCT Display.heightPixels, Display.widthPixels from Display order by Display.heightPixels asc, Display.widthPixels asc";
+        private string displayTypeQuery= "Select distinct Display.displayType from Display order by Display.displayType asc";
+        private string displaySizeQuery = "Select distinct Display.sizeInches from Display order by Display.sizeInches asc";
         private string displayTouchScreenQuery = "Select distinct Display.isTouchscreen from Display";
         private string phoneLowQuery = "SELECT MIN(Phone.price) AS 'min_phone_price' FROM Phone";
         private string phoneHighQuery = "SELECT MAX(Phone.price) AS 'max_phone_price' FROM Phone";
-        private string phoneInternalQuery = "Select distinct Phone.internalCapacity from Phone";
-        private string phoneExpandableQuery = "Select distinct Phone.expandableCapacity from Phone";
-        private string phoneRAMQuery = "Select distinct Phone.RAMcapacity from Phone";
+        private string phoneInternalQuery = "Select distinct Phone.internalCapacity from Phone order by Phone.internalCapacity asc";
+        private string phoneExpandableQuery = "Select distinct Phone.expandableCapacity from Phone order by Phone.expandableCapacity asc";
+        private string phoneRAMQuery = "Select distinct Phone.RAMcapacity from Phone order by Phone.RAMCapacity asc";
         private string phoneExtKeyQuery = "Select distinct Phone.hasExternalKeyboard from Phone";
         private string phoneHeadphoneJackQuery = "Select distinct Phone.analogAudioJack from Phone";
-        private string phoneBattCapQuery = "Select distinct Phone.batteryCapacity from Phone";
-        private string networkQuery = "Select distinct Network.type from Network";
-        private string carrierQuery= "Select distinct Carrier.name from Carrier";
+        private string phoneBattCapQuery = "Select distinct Phone.batteryCapacity from Phone order by Phone.batteryCapacity asc";
+        private string networkQuery = "Select distinct Network.type from Network order by Network.type asc";
+        private string carrierQuery= "Select distinct Carrier.name from Carrier order by Carrier.name asc";
         //private List<string> queryArray = new List<string>();
         public string query;
         MySqlConnection conn;
         public bool cont = false;
         public string orderPart;
+        private bool isFirstQuery = false;
 
         public AdvancedSearch()
         {
@@ -341,55 +342,68 @@ namespace GameOfPhones
         private string createQuery()
         {
             StringBuilder queryBuilder = new StringBuilder();
+            //create the base linked query
+            
+            queryBuilder.Append("select distinct Phone.phoneID "+
+            "from Phone " +
+            "LEFT join CPU on CPU.CPUID=Phone.CPUID "+
+            "LEFT join OS on OS.OSID = Phone.OSID "+
+            "LEFT join Manufacturer on Manufacturer.manufacturerID = Phone.manufacturerID "+
+            "LEFT join PhoneCamera on PhoneCamera.phoneID=Phone.phoneID "+
+            "LEFT join Camera on PhoneCamera.cameraID=Camera.cameraID "+
+            "LEFT join Display on Display.displayID=Phone.displayID "+
+            "LEFT join PhoneCarrier on PhoneCarrier.phoneID=Phone.phoneID "+
+            "LEFT join Carrier on Carrier.carrierID=PhoneCarrier.carrierID "+
+            "LEFT join Network on Network.networkID=Carrier.networkID where ");
             string temp = this.createCPUQuery();
             if (temp != null)
             {
                 queryBuilder.Append(temp);
-                queryBuilder.Append(" union ");
+                //queryBuilder.Append(" intersect ");
             }
 
             temp = this.createOSQuery();
             if (temp != null)
             {
                 queryBuilder.Append(temp);
-                queryBuilder.Append(" union ");
+                //queryBuilder.Append(" intersect ");
             }
 
             temp = this.createManufacturerQuery(manufacturerBox);
             if (temp != null)
             {
                 queryBuilder.Append(temp);
-                queryBuilder.Append(" union ");
+                //queryBuilder.Append(" intersect ");
             }
 
             temp = this.createCameraQuery(cameraMPixBox, cameraOpticalZoomBox);
             if (temp != null)
             {
                 queryBuilder.Append(temp);
-                queryBuilder.Append(" union ");
+                //queryBuilder.Append(" intersect ");
             }
 
             temp = this.createDisplayQuery(displayResolutionBox, displayTypeBox, displaySizeBox, displayTouchscreenBox);
             if (temp != null)
             {
                 queryBuilder.Append(temp);
-                queryBuilder.Append(" union ");
+                //queryBuilder.Append(" intersect ");
             }
 
             temp = this.createPhoneQuery(phonePriceLowTB,phonePriceHighTB,phoneInternalCapacityBox,phoneExpandableCapacityBox,phoneRAMBox,phoneExternalKeyboardBox,phoneHeadphoneJackBox,phoneBattCapBox);
             if (temp != null)
             {
                 queryBuilder.Append(temp);
-                queryBuilder.Append(" union ");
+                //queryBuilder.Append(" intersect ");
             }
 
             temp = this.createCarrierNetworkQuery(carrierNameBox,networkTypeBox);
             if (temp != null)
             {
                 queryBuilder.Append(temp);
-                queryBuilder.Append(" union ");
+                //queryBuilder.Append(" intersect ");
             }
-            queryBuilder.Remove(queryBuilder.Length - 7, 7);
+            //queryBuilder.Remove(queryBuilder.Length - 7, 7);
             return queryBuilder.ToString();
         }
 
@@ -397,9 +411,10 @@ namespace GameOfPhones
         {
             if (CPUFreqBox.CheckedItems.Count == 0 && CPUCoreBox.CheckedItems.Count == 0) return null;
             StringBuilder sb = new StringBuilder();
-            sb.Append("select distinct Phone.phoneID from Phone inner join CPU on CPU.cpuID=Phone.CPUID where");
+            //sb.Append("select distinct Phone.phoneID from Phone inner join CPU on CPU.cpuID=Phone.CPUID where");
             if (CPUFreqBox.CheckedItems.Count != 0)
             {
+                sb.Append(this.appendAnd());
                 sb.Append(" CPU.frequency like '");
                 for (int i = 0; i < CPUFreqBox.CheckedItems.Count; i++)
                 {
@@ -409,8 +424,7 @@ namespace GameOfPhones
             }
             if (CPUCoreBox.CheckedItems.Count != 0)
             {
-                if (CPUFreqBox.CheckedItems.Count != 0)
-                    sb.Append(" and");
+                sb.Append(this.appendAnd());
                 sb.Append(" CPU.numCores=");
                 for (int i = 0; i < CPUCoreBox.CheckedItems.Count; i++)
                 {
@@ -424,10 +438,11 @@ namespace GameOfPhones
         {
             if (OSBox.CheckedItems.Count == 0) return null;
             StringBuilder sb = new StringBuilder();
-            sb.Append("select distinct Phone.PhoneID from Phone inner join OS on OS.OSID=Phone.OSID");
+            //sb.Append("select distinct Phone.PhoneID from Phone inner join OS on OS.OSID=Phone.OSID");
             if (OSBox.CheckedItems.Count != 0)
             {
-                sb.Append(" where OS.name like '");
+                sb.Append(this.appendAnd());
+                sb.Append(" OS.name like '");
                 for (int i = 0; i < OSBox.CheckedItems.Count; i++)
                 {
                     sb.Append(OSBox.CheckedItems[i].ToString() + "' or '");
@@ -441,10 +456,11 @@ namespace GameOfPhones
         {
             if (clb.CheckedItems.Count == 0) return null;
             StringBuilder sb = new StringBuilder();
-            sb.Append("select distinct Phone.phoneID from Phone inner join Manufacturer on Manufacturer.manufacturerID=Phone.manufacturerID");
+            //sb.Append("select distinct Phone.phoneID from Phone inner join Manufacturer on Manufacturer.manufacturerID=Phone.manufacturerID");
             if (clb.CheckedItems.Count != 0)
             {
-                sb.Append(" where Manufacturer.name like '");
+                sb.Append(this.appendAnd());
+                sb.Append(" Manufacturer.name like '");
                 for (int i = 0; i < clb.CheckedItems.Count; i++)
                 {
                     sb.Append(clb.CheckedItems[i].ToString() + "' or '");
@@ -458,10 +474,11 @@ namespace GameOfPhones
         {
             if (clb.CheckedItems.Count == 0 && clb2.CheckedItems.Count == 0) return null;
             StringBuilder sb = new StringBuilder();
-            sb.Append("select distinct PhoneCamera.phoneID from PhoneCamera inner join Camera on Camera.cameraID=PhoneCamera.cameraID");
+            //sb.Append("select distinct PhoneCamera.phoneID from PhoneCamera inner join Camera on Camera.cameraID=PhoneCamera.cameraID");
             if (clb.CheckedItems.Count != 0)
             {
-                sb.Append(" where Camera.mPixels like '");
+                sb.Append(this.appendAnd());
+                sb.Append(" Camera.mPixels like '");
                 for (int i = 0; i < clb.CheckedItems.Count; i++)
                 {
                     sb.Append(clb.CheckedItems[i].ToString() + "' or '");
@@ -470,7 +487,8 @@ namespace GameOfPhones
             }
             if (clb2.CheckedItems.Count != 0)
             {
-                sb.Append(" and Camera.opticalZoom like '");
+                sb.Append(this.appendAnd());
+                sb.Append(" Camera.opticalZoom like '");
                 for (int i = 0; i < clb2.CheckedItems.Count; i++)
                 {
                     sb.Append(clb2.CheckedItems[i].ToString() + "' or '");
@@ -484,11 +502,12 @@ namespace GameOfPhones
         {
             if (clb.CheckedItems.Count == 0 && clb2.CheckedItems.Count == 0 && clb3.CheckedItems.Count == 0 && clb4.CheckedItems.Count == 0) return null;
             StringBuilder sb = new StringBuilder();
-            sb.Append("select distinct Phone.phoneID from Phone inner join Display on Display.displayID=Phone.displayID");
+            //sb.Append("select distinct Phone.phoneID from Phone inner join Display on Display.displayID=Phone.displayID");
             //res height
             if (clb.CheckedItems.Count != 0)
             {
-                sb.Append(" where Display.heightPixels like '");
+                sb.Append(this.appendAnd());
+                sb.Append(" Display.heightPixels like '");
                 for (int i = 0; i < clb.CheckedItems.Count; i++)
                 {
                     string[] temp = clb.CheckedItems[i].ToString().Split(' ');
@@ -499,7 +518,8 @@ namespace GameOfPhones
             //res width
             if (clb.CheckedItems.Count != 0)
             {
-                sb.Append(" and Display.widthPixels like '");
+                sb.Append(this.appendAnd());
+                sb.Append(" Display.widthPixels like '");
                 for (int i = 0; i < clb.CheckedItems.Count; i++)
                 {
                     string[] temp = clb.CheckedItems[i].ToString().Split(' ');
@@ -510,7 +530,8 @@ namespace GameOfPhones
             //type
             if (clb2.CheckedItems.Count != 0)
             {
-                sb.Append(" and Display.displayType like '");
+                sb.Append(this.appendAnd());
+                sb.Append(" Display.displayType like '");
                 for (int i = 0; i < clb2.CheckedItems.Count; i++)
                 {
                     sb.Append(clb2.CheckedItems[i].ToString() + "' or '");
@@ -520,7 +541,8 @@ namespace GameOfPhones
             //size
             if (clb3.CheckedItems.Count != 0)
             {
-                sb.Append(" and Display.sizeInches like '");
+                sb.Append(this.appendAnd());
+                sb.Append(" Display.sizeInches like '");
                 for (int i = 0; i < clb3.CheckedItems.Count; i++)
                 {
                     sb.Append(clb3.CheckedItems[i].ToString() + "' or '");
@@ -532,8 +554,16 @@ namespace GameOfPhones
             {
                 string temp = clb4.CheckedItems[0].ToString();
                 bool b = bool.Parse(temp);
-                if (b) sb.Append(" and Display.isTouchscreen=1");
-                else sb.Append(" and Display.isTouchscreen=0");
+                if (b)
+                {
+                    sb.Append(this.appendAnd());
+                    sb.Append(" Display.isTouchscreen=1");
+                }
+                else
+                {
+                    sb.Append(this.appendAnd());
+                    sb.Append(" Display.isTouchscreen=0");
+                }
             }
             return sb.ToString();
         }
@@ -542,7 +572,7 @@ namespace GameOfPhones
         {
             if (tb.Text.Length == 0 && tb2.Text.Length == 0 && clb.CheckedItems.Count == 0 && clb2.CheckedItems.Count == 0 && clb3.CheckedItems.Count == 0 && clb4.CheckedItems.Count == 0 && clb5.CheckedItems.Count == 0 && clb6.CheckedItems.Count == 0) return null;
             StringBuilder sb = new StringBuilder();
-            sb.Append("select Phone.phoneID from Phone");
+            //sb.Append("select Phone.phoneID from Phone");
             //low price limit
             if (tb.Text.Length != 0)
             {
@@ -555,11 +585,13 @@ namespace GameOfPhones
                 {
                     temp = 0;
                 }
-                sb.Append(" where Phone.price >= " + temp);
+                sb.Append(this.appendAnd());
+                sb.Append(" Phone.price >= " + temp);
             }
             else
             {
-                sb.Append(" where Phone.price > 0");
+                sb.Append(this.appendAnd());
+                sb.Append(" Phone.price > 0");
             }
             //high price limit
             if (tb2.Text.Length != 0)
@@ -573,16 +605,19 @@ namespace GameOfPhones
                 {
                     temp = int.MaxValue;
                 }
-                sb.Append(" and Phone.price <= " + temp);
+                sb.Append(this.appendAnd());
+                sb.Append(" Phone.price <= " + temp);
             }
             else
             {
-                sb.Append(" and Phone.price < " + int.MaxValue);
+                sb.Append(this.appendAnd());
+                sb.Append(" Phone.price < " + int.MaxValue);
             }
             //internal capactiy
             if (clb.CheckedItems.Count != 0)
             {
-                sb.Append(" and Phone.internalCapacity like '");
+                sb.Append(this.appendAnd());
+                sb.Append(" Phone.internalCapacity like '");
                 for (int i = 0; i < clb.CheckedItems.Count; i++)
                 {
                     sb.Append(clb.CheckedItems[i].ToString() + "' or '");
@@ -592,7 +627,8 @@ namespace GameOfPhones
             //expandable capactiy
             if (clb2.CheckedItems.Count != 0)
             {
-                sb.Append(" and Phone.expandableCapacity like '");
+                sb.Append(this.appendAnd());
+                sb.Append(" Phone.expandableCapacity like '");
                 for (int i = 0; i < clb2.CheckedItems.Count; i++)
                 {
                     sb.Append(clb2.CheckedItems[i].ToString() + "' or '");
@@ -602,7 +638,8 @@ namespace GameOfPhones
             //RAM capactiy
             if (clb3.CheckedItems.Count != 0)
             {
-                sb.Append(" and Phone.RAMCapacity like '");
+                sb.Append(this.appendAnd());
+                sb.Append(" Phone.RAMCapacity like '");
                 for (int i = 0; i < clb3.CheckedItems.Count; i++)
                 {
                     sb.Append(clb3.CheckedItems[i].ToString() + "' or '");
@@ -614,21 +651,38 @@ namespace GameOfPhones
             {
                 string temp = clb4.CheckedItems[0].ToString();
                 bool b = bool.Parse(temp);
-                if (b) sb.Append(" and Phone.hasExternalKeyboard=1");
-                else sb.Append(" and Phone.hasExternalKeyboard=0");
+                if (b)
+                {
+                    sb.Append(this.appendAnd());
+                    sb.Append(" Phone.hasExternalKeyboard=1");
+                }
+                else
+                {
+                    sb.Append(this.appendAnd());
+                    sb.Append(" Phone.hasExternalKeyboard=0");
+                }
             }
             //headphone Jack
             if (clb5.CheckedItems.Count != 0)
             {
                 string temp = clb5.CheckedItems[0].ToString();
                 bool b = bool.Parse(temp);
-                if (b) sb.Append(" and Phone.analogAudioJack=1");
-                else sb.Append(" and Phone.analogAudioJack=0");
+                if (b)
+                {
+                    sb.Append(this.appendAnd());
+                    sb.Append(" Phone.analogAudioJack=1");
+                }
+                else
+                {
+                    sb.Append(this.appendAnd());
+                    sb.Append(" Phone.analogAudioJack=0");
+                }
             }
             //Battery capactiy
             if (clb6.CheckedItems.Count != 0)
             {
-                sb.Append(" and Phone.batteryCapacity like '");
+                sb.Append(this.appendAnd());
+                sb.Append(" Phone.batteryCapacity like '");
                 for (int i = 0; i < clb6.CheckedItems.Count; i++)
                 {
                     sb.Append(clb6.CheckedItems[i].ToString() + "' or '");
@@ -646,24 +700,23 @@ namespace GameOfPhones
                 return null;
             }
             StringBuilder sb = new StringBuilder();
-            sb.Append("select DISTINCT PhoneCarrier.phoneID from PhoneCarrier inner join Carrier on Carrier.carrierID=PhoneCarrier.carrierID inner join Network on Network.networkID=Carrier.networkID where");
+            //sb.Append("select DISTINCT PhoneCarrier.phoneID from PhoneCarrier inner join Carrier on Carrier.carrierID=PhoneCarrier.carrierID inner join Network on Network.networkID=Carrier.networkID where");
             //carrier section
             if (carrier.CheckedItems.Count != 0)
             {
-                sb.Append(" Carrier.name like '");
+                sb.Append(this.appendAnd());
+                sb.Append(" (Carrier.name like '");
                 for (int i = 0; i < carrier.CheckedItems.Count; i++)
                 {
                     sb.Append(carrier.CheckedItems[i].ToString() + "' or Carrier.name like '");
                 }
                 sb.Remove(sb.Length - 22, 22);
+                sb.Append(")");
             }
             //network section
             if (network.CheckedItems.Count != 0)
             {
-                if (carrier.CheckedItems.Count != 0)
-                {
-                    sb.Append(" and");
-                }
+                sb.Append(this.appendAnd());
                 sb.Append(" Network.type like '");
                 for (int i = 0; i < network.CheckedItems.Count; i++)
                 {
@@ -693,6 +746,19 @@ namespace GameOfPhones
             if (e.NewValue == CheckState.Checked)
                 for (int ix = 0; ix < phoneHeadphoneJackBox.Items.Count; ++ix)
                     if (e.Index != ix) phoneHeadphoneJackBox.SetItemChecked(ix, false);
+        }
+
+        private string appendAnd()
+        {
+            if (!isFirstQuery)
+            {
+                isFirstQuery = true;
+                return "";
+            }
+            else
+            {
+                return " and ";
+            }
         }
 
     }

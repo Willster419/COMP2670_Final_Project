@@ -80,12 +80,12 @@ namespace GameOfPhones
             
             foreach (int i in phoneIDArray)
             {
-                sb.Append("" + i + " or ");
+                sb.Append("" + i + " or Phone.phoneID=");
             }
             if (phoneIDArray.Count == 0)
                 return;
             string tempQuery = sb.ToString();
-            tempQuery = tempQuery.Substring(0, tempQuery.Length - 4);
+            tempQuery = tempQuery.Substring(0, tempQuery.Length - 18);
             tempQuery = tempQuery + orderPart;
             phoneDataSet = this.runQuery(tempQuery);
             DataTable dt2 = phoneDataSet.Tables[0];
@@ -219,6 +219,7 @@ namespace GameOfPhones
             // phoneInfoPanel
             // 
             newPhoneInfoPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            //newPhoneInfoPanel.AutoScroll = true;
             newPhoneInfoPanel.Controls.Add(newInternalStorageLabel);
             newPhoneInfoPanel.Controls.Add(newCompareCheckBox);
             newPhoneInfoPanel.Controls.Add(newOSLabel);

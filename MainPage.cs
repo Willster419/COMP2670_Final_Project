@@ -92,14 +92,14 @@ namespace GameOfPhones
         {
             if (QuickSearchBox.Text.Length == 0)
             {
-                QuickSearchBox.Text = "Enter manufacter, phone name, seperate by commas";
+                QuickSearchBox.Text = "Enter manufacter, phone name, seperated by spaces";
                 QuickSearchBox.ForeColor = SystemColors.GrayText;
             }
         }
 
         private void QuickSearchBox_Enter(object sender, EventArgs e)
         {
-            if (QuickSearchBox.Text == "Enter manufacter, phone name, seperate by commas")
+            if (QuickSearchBox.Text == "Enter manufacter, phone name, seperated by spaces")
             {
                 QuickSearchBox.Text = "";
                 QuickSearchBox.ForeColor = SystemColors.WindowText;

@@ -81,9 +81,9 @@
             this.HintLabel.AutoSize = true;
             this.HintLabel.Location = new System.Drawing.Point(29, 32);
             this.HintLabel.Name = "HintLabel";
-            this.HintLabel.Size = new System.Drawing.Size(265, 13);
+            this.HintLabel.Size = new System.Drawing.Size(260, 13);
             this.HintLabel.TabIndex = 4;
-            this.HintLabel.Text = "Enter manufacter or phone name, seperate by commas";
+            this.HintLabel.Text = "Enter manufacter or phone name, seperate by spaces";
             // 
             // orLabel
             // 
