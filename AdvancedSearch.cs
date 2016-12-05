@@ -415,12 +415,13 @@ namespace GameOfPhones
             if (CPUFreqBox.CheckedItems.Count != 0)
             {
                 sb.Append(this.appendAnd());
-                sb.Append(" CPU.frequency like '");
+                sb.Append(" (CPU.frequency like '");
                 for (int i = 0; i < CPUFreqBox.CheckedItems.Count; i++)
                 {
-                    sb.Append(CPUFreqBox.CheckedItems[i].ToString() + "' or '");
+                    sb.Append(CPUFreqBox.CheckedItems[i].ToString() + "' or CPU.frequency like'");
                 }
-                sb.Remove(sb.Length - 4, 4);
+                sb.Remove(sb.Length - 23, 23);
+                sb.Append(")");
             }
             if (CPUCoreBox.CheckedItems.Count != 0)
             {
@@ -442,12 +443,13 @@ namespace GameOfPhones
             if (OSBox.CheckedItems.Count != 0)
             {
                 sb.Append(this.appendAnd());
-                sb.Append(" OS.name like '");
+                sb.Append(" (OS.name like '");
                 for (int i = 0; i < OSBox.CheckedItems.Count; i++)
                 {
-                    sb.Append(OSBox.CheckedItems[i].ToString() + "' or '");
+                    sb.Append(OSBox.CheckedItems[i].ToString() + "' or OS.name like'");
                 }
-                sb.Remove(sb.Length - 4, 4);
+                sb.Remove(sb.Length - 17, 17);
+                sb.Append(")");
             }
             return sb.ToString();
         }
@@ -460,12 +462,13 @@ namespace GameOfPhones
             if (clb.CheckedItems.Count != 0)
             {
                 sb.Append(this.appendAnd());
-                sb.Append(" Manufacturer.name like '");
+                sb.Append(" (Manufacturer.name like '");
                 for (int i = 0; i < clb.CheckedItems.Count; i++)
                 {
-                    sb.Append(clb.CheckedItems[i].ToString() + "' or '");
+                    sb.Append(clb.CheckedItems[i].ToString() + "' or Manufacturer.name like'");
                 }
-                sb.Remove(sb.Length - 4, 4);
+                sb.Remove(sb.Length - 27, 27);
+                sb.Append(")");
             }
             return sb.ToString();
         }
@@ -478,22 +481,24 @@ namespace GameOfPhones
             if (clb.CheckedItems.Count != 0)
             {
                 sb.Append(this.appendAnd());
-                sb.Append(" Camera.mPixels like '");
+                sb.Append(" (Camera.mPixels like '");
                 for (int i = 0; i < clb.CheckedItems.Count; i++)
                 {
-                    sb.Append(clb.CheckedItems[i].ToString() + "' or '");
+                    sb.Append(clb.CheckedItems[i].ToString() + "' or Camera.mPixels like'");
                 }
-                sb.Remove(sb.Length - 4, 4);
+                sb.Remove(sb.Length - 24, 24);
+                sb.Append(")");
             }
             if (clb2.CheckedItems.Count != 0)
             {
                 sb.Append(this.appendAnd());
-                sb.Append(" Camera.opticalZoom like '");
+                sb.Append(" (Camera.opticalZoom like '");
                 for (int i = 0; i < clb2.CheckedItems.Count; i++)
                 {
-                    sb.Append(clb2.CheckedItems[i].ToString() + "' or '");
+                    sb.Append(clb2.CheckedItems[i].ToString() + "' or Camera.opticalZoom like'");
                 }
-                sb.Remove(sb.Length - 4, 4);
+                sb.Remove(sb.Length - 28, 28);
+                sb.Append(")");
             }
             return sb.ToString();
         }
@@ -507,47 +512,51 @@ namespace GameOfPhones
             if (clb.CheckedItems.Count != 0)
             {
                 sb.Append(this.appendAnd());
-                sb.Append(" Display.heightPixels like '");
+                sb.Append(" (Display.heightPixels like '");
                 for (int i = 0; i < clb.CheckedItems.Count; i++)
                 {
                     string[] temp = clb.CheckedItems[i].ToString().Split(' ');
-                    sb.Append(temp[0] + "' or '");
+                    sb.Append(temp[0] + "' or Display.heightPixels like'");
                 }
-                sb.Remove(sb.Length - 4, 4);
+                sb.Remove(sb.Length - 30, 30);
+                sb.Append(")");
             }
             //res width
             if (clb.CheckedItems.Count != 0)
             {
                 sb.Append(this.appendAnd());
-                sb.Append(" Display.widthPixels like '");
+                sb.Append(" (Display.widthPixels like '");
                 for (int i = 0; i < clb.CheckedItems.Count; i++)
                 {
                     string[] temp = clb.CheckedItems[i].ToString().Split(' ');
-                    sb.Append(temp[2] + "' or '");
+                    sb.Append(temp[2] + "' or Display.widthPixels like'");
                 }
-                sb.Remove(sb.Length - 4, 4);
+                sb.Remove(sb.Length - 29, 29);
+                sb.Append(")");
             }
             //type
             if (clb2.CheckedItems.Count != 0)
             {
                 sb.Append(this.appendAnd());
-                sb.Append(" Display.displayType like '");
+                sb.Append(" (Display.displayType like '");
                 for (int i = 0; i < clb2.CheckedItems.Count; i++)
                 {
-                    sb.Append(clb2.CheckedItems[i].ToString() + "' or '");
+                    sb.Append(clb2.CheckedItems[i].ToString() + "' or Display.displayType like'");
                 }
-                sb.Remove(sb.Length - 4, 4);
+                sb.Remove(sb.Length - 29, 29);
+                sb.Append(")");
             }
             //size
             if (clb3.CheckedItems.Count != 0)
             {
                 sb.Append(this.appendAnd());
-                sb.Append(" Display.sizeInches like '");
+                sb.Append(" (Display.sizeInches like '");
                 for (int i = 0; i < clb3.CheckedItems.Count; i++)
                 {
-                    sb.Append(clb3.CheckedItems[i].ToString() + "' or '");
+                    sb.Append(clb3.CheckedItems[i].ToString() + "' or Display.sizeInches like'");
                 }
-                sb.Remove(sb.Length - 4, 4);
+                sb.Remove(sb.Length - 28, 28);
+                sb.Append(")");
             }
             //is touchscreen
             if (clb4.CheckedItems.Count != 0)
@@ -617,34 +626,37 @@ namespace GameOfPhones
             if (clb.CheckedItems.Count != 0)
             {
                 sb.Append(this.appendAnd());
-                sb.Append(" Phone.internalCapacity like '");
+                sb.Append(" (Phone.internalCapacity like '");
                 for (int i = 0; i < clb.CheckedItems.Count; i++)
                 {
-                    sb.Append(clb.CheckedItems[i].ToString() + "' or '");
+                    sb.Append(clb.CheckedItems[i].ToString() + "' or Phone.internalCapacity like'");
                 }
-                sb.Remove(sb.Length - 4, 4);
+                sb.Remove(sb.Length - 32, 32);
+                sb.Append(")");
             }
             //expandable capactiy
             if (clb2.CheckedItems.Count != 0)
             {
                 sb.Append(this.appendAnd());
-                sb.Append(" Phone.expandableCapacity like '");
+                sb.Append(" (Phone.expandableCapacity like '");
                 for (int i = 0; i < clb2.CheckedItems.Count; i++)
                 {
-                    sb.Append(clb2.CheckedItems[i].ToString() + "' or '");
+                    sb.Append(clb2.CheckedItems[i].ToString() + "' or Phone.expandableCapacity like'");
                 }
-                sb.Remove(sb.Length - 4, 4);
+                sb.Remove(sb.Length - 34, 34);
+                sb.Append(")");
             }
             //RAM capactiy
             if (clb3.CheckedItems.Count != 0)
             {
                 sb.Append(this.appendAnd());
-                sb.Append(" Phone.RAMCapacity like '");
+                sb.Append(" (Phone.RAMCapacity like '");
                 for (int i = 0; i < clb3.CheckedItems.Count; i++)
                 {
-                    sb.Append(clb3.CheckedItems[i].ToString() + "' or '");
+                    sb.Append(clb3.CheckedItems[i].ToString() + "' or Phone.RAMCapacity like'");
                 }
-                sb.Remove(sb.Length - 4, 4);
+                sb.Remove(sb.Length - 27, 27);
+                sb.Append(")");
             }
             //external keybard
             if (clb4.CheckedItems.Count != 0)
@@ -682,12 +694,13 @@ namespace GameOfPhones
             if (clb6.CheckedItems.Count != 0)
             {
                 sb.Append(this.appendAnd());
-                sb.Append(" Phone.batteryCapacity like '");
+                sb.Append(" (Phone.batteryCapacity like '");
                 for (int i = 0; i < clb6.CheckedItems.Count; i++)
                 {
-                    sb.Append(clb6.CheckedItems[i].ToString() + "' or '");
+                    sb.Append(clb6.CheckedItems[i].ToString() + "' or Phone.batteryCapacity like'");
                 }
-                sb.Remove(sb.Length - 4, 4);
+                sb.Remove(sb.Length - 31, 31);
+                sb.Append(")");
             }
             return sb.ToString();
         }
@@ -710,19 +723,20 @@ namespace GameOfPhones
                 {
                     sb.Append(carrier.CheckedItems[i].ToString() + "' or Carrier.name like '");
                 }
-                sb.Remove(sb.Length - 22, 22);
+                sb.Remove(sb.Length - 23, 23);
                 sb.Append(")");
             }
             //network section
             if (network.CheckedItems.Count != 0)
             {
                 sb.Append(this.appendAnd());
-                sb.Append(" Network.type like '");
+                sb.Append(" (Network.type like '");
                 for (int i = 0; i < network.CheckedItems.Count; i++)
                 {
-                    sb.Append(network.CheckedItems[i].ToString() + "' or '");
+                    sb.Append(network.CheckedItems[i].ToString() + "' or Network.type like'");
                 }
-                sb.Remove(sb.Length - 4, 4);
+                sb.Remove(sb.Length - 22, 22);
+                sb.Append(")");
             }
             return sb.ToString();
         }

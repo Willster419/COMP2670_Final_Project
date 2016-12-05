@@ -113,7 +113,7 @@
             "Price (High-Low)",
             "Phone Name",
             "RAM (High-Low)",
-            "Internal Capacity (High-Low)",
+            "Internal Capacity (Low-High)",
             "Manufacturer (A-Z)"});
             this.orderByComboBox.Location = new System.Drawing.Point(80, 71);
             this.orderByComboBox.Name = "orderByComboBox";
