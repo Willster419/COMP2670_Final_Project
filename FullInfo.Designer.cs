@@ -845,6 +845,7 @@
             // sensorListBox
             // 
             this.sensorListBox.FormattingEnabled = true;
+            this.sensorListBox.HorizontalScrollbar = true;
             this.sensorListBox.Location = new System.Drawing.Point(604, 118);
             this.sensorListBox.Name = "sensorListBox";
             this.sensorListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
@@ -854,6 +855,7 @@
             // featureListBox
             // 
             this.featureListBox.FormattingEnabled = true;
+            this.featureListBox.HorizontalScrollbar = true;
             this.featureListBox.Location = new System.Drawing.Point(694, 118);
             this.featureListBox.Name = "featureListBox";
             this.featureListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;

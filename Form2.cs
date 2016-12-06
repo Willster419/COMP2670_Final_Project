@@ -14,7 +14,6 @@ namespace GameOfPhones
     public partial class Form2 : Form
     {
         MySqlConnection conn;
-        ResultsForm rf;
         public Form2()
         {
             InitializeComponent();
@@ -24,7 +23,6 @@ namespace GameOfPhones
         {
             string connectString = "Server=10.14.52.126;Database=cellphone;Uid=tom;Pwd=;";
             conn = new MySqlConnection(connectString);
-            rf = new ResultsForm();
         }
 
         private void richTextBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -85,7 +83,6 @@ namespace GameOfPhones
             object[] rowArray = dr.ItemArray;
             int numCols = rowArray.Count();
             
-            rf.phoneList = new List<Phone>();
             Phone tempPhone = new Phone();
             foreach (DataColumn dc in dt.Columns)
             {
@@ -101,7 +98,6 @@ namespace GameOfPhones
                         break;
                 }
             }
-            rf.phoneList.Add(tempPhone);
             pictureBox1.ImageLocation = tempPhone.pictureURL;
         }
     }

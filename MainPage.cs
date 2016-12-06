@@ -11,7 +11,6 @@ namespace GameOfPhones
 {
     public partial class MainPage : Form
     {
-        ResultsForm RF;
         AdvancedSearch AS;
         TheResultsPage t;
         public MainPage()
@@ -21,6 +20,12 @@ namespace GameOfPhones
 
         private void searchButton_Click(object sender, EventArgs e)
         {
+            //check for values
+            if (QuickSearchBox.Text.Equals("Enter manufacter, phone name, seperated by spaces") || QuickSearchBox.Text.Length == 0 || QuickSearchBox.Text == null)
+            {
+                MessageBox.Show("Invalid input");
+                return;
+            }
             //parse search form into array of queries
             string[] parseArray = QuickSearchBox.Text.Split(' ');
             StringBuilder sb = new StringBuilder();
@@ -109,6 +114,8 @@ namespace GameOfPhones
         private void MainPage_Load(object sender, EventArgs e)
         {
             orderByComboBox.SelectedIndex = 0;
+            QuickSearchBox_Leave(null, null);
+            this.ActiveControl = orderByComboBox;
         }
     }
 }
