@@ -47,7 +47,7 @@ namespace GameOfPhones
             monthReleasedValue.Text = int2Month(samplePhone.monthReleased);
             nameValue.Text = samplePhone.name;
             numSimCardsValue.Text = "" + samplePhone.numSimCards;
-            numSpeakersValue.Text = "" + samplePhone.numExternalSpeakers;
+            numSpeakersValue.Text = yesNo(samplePhone.hasExternalSpeakers);
             OSValue.Text = samplePhone.OSName;
             physicalHomeButtonValue.Text = yesNo(samplePhone.physicalHomeButton);
             priceValue.Text = "$" + samplePhone.price;

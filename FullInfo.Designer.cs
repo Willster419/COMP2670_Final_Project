@@ -604,9 +604,9 @@
             this.numSpeakersTitle.AutoSize = true;
             this.numSpeakersTitle.Location = new System.Drawing.Point(4, 239);
             this.numSpeakersTitle.Name = "numSpeakersTitle";
-            this.numSpeakersTitle.Size = new System.Drawing.Size(104, 13);
+            this.numSpeakersTitle.Size = new System.Drawing.Size(105, 13);
             this.numSpeakersTitle.TabIndex = 14;
-            this.numSpeakersTitle.Text = "Number of Speakers";
+            this.numSpeakersTitle.Text = "External Speaker(s)?";
             // 
             // analogHeadphoneJackTitle
             // 

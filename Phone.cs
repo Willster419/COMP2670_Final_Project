@@ -82,7 +82,7 @@ namespace GameOfPhones
         /// <summary>
         /// The number of exernal speakers (loudspeakers) the phone has built-in
         /// </summary>
-        public int numExternalSpeakers { get; set; }
+        public bool hasExternalSpeakers { get; set; }
         /// <summary>
         /// Indicates if the phone has an analog audio jack
         /// </summary>

@@ -67,7 +67,7 @@ namespace GameOfPhones
             "Display.widthPixels,Display.sizeInches,Display.DPI," +//23,24,25
             "Phone.monthReleased,Phone.yearReleased," +//26,27
             "Phone.expandableCapacity,Phone.hasExternalKeyboard," +//28,29
-            "Phone.isUnlocked,Phone.numExternalSpeakers,SIM.numCards," +//30,31,32
+            "Phone.isUnlocked,Phone.hasExternalSpeakers,SIM.numCards," +//30,31,32
             "Phone.physicalHomeButton,SIM.type,Phone.stillAvailable,Phone.weight" +//33,34,35,36
             " from Phone" +
             " left join Manufacturer on Manufacturer.manufacturerID=Phone.manufacturerID" +
@@ -124,7 +124,7 @@ namespace GameOfPhones
                 p.expandableCapacity = (int)dr.ItemArray[i++];
                 p.hasExternalKeyboard = (bool)dr.ItemArray[i++];
                 p.isUnlocked = (bool)dr.ItemArray[i++];//30
-                p.numExternalSpeakers = (int)dr.ItemArray[i++];
+                p.hasExternalSpeakers = (bool)dr.ItemArray[i++];
                 p.numSimCards = (int)dr.ItemArray[i++];
                 p.physicalHomeButton = (bool)dr.ItemArray[i++];
                 p.simCardType = (string)dr.ItemArray[i++];

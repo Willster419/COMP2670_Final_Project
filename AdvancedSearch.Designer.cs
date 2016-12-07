@@ -510,7 +510,7 @@
             // 
             this.phoneBattCapBox.CheckOnClick = true;
             this.phoneBattCapBox.FormattingEnabled = true;
-            this.phoneBattCapBox.Location = new System.Drawing.Point(5, 707);
+            this.phoneBattCapBox.Location = new System.Drawing.Point(5, 605);
             this.phoneBattCapBox.Name = "phoneBattCapBox";
             this.phoneBattCapBox.Size = new System.Drawing.Size(120, 94);
             this.phoneBattCapBox.TabIndex = 13;
@@ -518,7 +518,7 @@
             // batteryCapacityLabel
             // 
             this.batteryCapacityLabel.AutoSize = true;
-            this.batteryCapacityLabel.Location = new System.Drawing.Point(5, 691);
+            this.batteryCapacityLabel.Location = new System.Drawing.Point(5, 589);
             this.batteryCapacityLabel.Name = "batteryCapacityLabel";
             this.batteryCapacityLabel.Size = new System.Drawing.Size(84, 13);
             this.batteryCapacityLabel.TabIndex = 12;
@@ -528,7 +528,7 @@
             // 
             this.phoneHeadphoneJackBox.CheckOnClick = true;
             this.phoneHeadphoneJackBox.FormattingEnabled = true;
-            this.phoneHeadphoneJackBox.Location = new System.Drawing.Point(5, 590);
+            this.phoneHeadphoneJackBox.Location = new System.Drawing.Point(5, 536);
             this.phoneHeadphoneJackBox.Name = "phoneHeadphoneJackBox";
             this.phoneHeadphoneJackBox.Size = new System.Drawing.Size(120, 34);
             this.phoneHeadphoneJackBox.TabIndex = 11;
@@ -537,7 +537,7 @@
             // headphoneJackLabel
             // 
             this.headphoneJackLabel.AutoSize = true;
-            this.headphoneJackLabel.Location = new System.Drawing.Point(5, 574);
+            this.headphoneJackLabel.Location = new System.Drawing.Point(5, 520);
             this.headphoneJackLabel.Name = "headphoneJackLabel";
             this.headphoneJackLabel.Size = new System.Drawing.Size(89, 13);
             this.headphoneJackLabel.TabIndex = 10;
