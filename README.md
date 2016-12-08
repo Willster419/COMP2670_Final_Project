@@ -3,8 +3,10 @@ This Repo Contains all the code to the front-end GUI of our database. It was wri
 
 ## How to install
 In order to use this application, you must have the following additional software installed
-1. Microsoft .NET framework version 4 located at https://www.microsoft.com/en-us/download/details.aspx?id=17851
-2. MySQL and Appache - It is recommended to install these both through the application xampp located at https://www.apachefriends.org/download.html
+ - Microsoft .NET framework version 4 located at
+ https://www.microsoft.com/en-us/download/details.aspx?id=17851
+ - MySQL and Appache. It is recommended to install these both through the application xampp located at 
+ https://www.apachefriends.org/download.html
 
 Follow the installer's prompts to complete each software's installation.
 
@@ -17,9 +19,9 @@ Follow the installer's prompts to complete each software's installation.
 2. Extract the zip file "Part 4 GUI release.zip" into a directory and run the exe.
   a. you can also use the zip file "Release.zip" in the repository directory bin/Release
    
-You will see two files:
-GameOfPhones.exe - The main GUI executable file.
-MySql.Data.dll - The API's provided by MySQL to interface with the MySQL database.
+Eithor zip you download, you will see two files:
+ - GameOfPhones.exe - The main GUI executable file.
+ - MySql.Data.dll - The API's provided by MySQL to interface with the MySQL database.
 
 ## Application description
 The Application is divided into 4 parts: the main window, the advanced search, the results page, and the full phone information page.
