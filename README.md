@@ -12,12 +12,12 @@ Follow the installer's prompts to complete each software's installation.
 
 ## How to run
 1. Import the database into MySQL via phpMyAdmin
-  a. navigate to "http://localhost/phpmyadmin"
-  b. create a database called "cellphone"
-  c. import the file "Part 4 physical design" into the cellphone database
+  1. navigate to "http://localhost/phpmyadmin"
+  2. create a database called "cellphone"
+  3. import the file "Part 4 physical design" into the cellphone database
 
 2. Extract the zip file "Part 4 GUI release.zip" into a directory and run the exe.
-  a. you can also use the zip file "Release.zip" in the repository directory bin/Release
+  1. you can also use the zip file "Release.zip" in the repository directory bin/Release
    
 Eithor zip you download, you will see two files:
  - GameOfPhones.exe - The main GUI executable file.
