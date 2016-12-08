@@ -20,6 +20,7 @@ namespace GameOfPhones
         public List<Phone> phoneList;
         MySqlConnection conn;
         DataSet phoneDataSet;
+        bool switchh = false;
 
         public TheResultsPage()
         {
@@ -355,7 +356,7 @@ namespace GameOfPhones
 
         private DataSet runQuery(string queryyy)
         {
-            bool switchh = true;
+            
             if (switchh)
             {
                 conn = new MySqlConnection("Server=10.14.52.125;Database=cellphone;Uid=root;");

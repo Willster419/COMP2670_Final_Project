@@ -17,6 +17,7 @@ namespace GameOfPhones
         MySqlConnection conn;
         DataSet phoneDataSet;
         public Phone samplePhone;
+        bool switchh = true;
 
         public FullInfo()
         {
@@ -153,7 +154,7 @@ namespace GameOfPhones
 
         private DataSet runQuery(string queryy)
         {
-            bool switchh = true;
+            
             if (switchh)
             {
                 conn = new MySqlConnection("Server=10.14.52.125;Database=cellphone;Uid=root;");

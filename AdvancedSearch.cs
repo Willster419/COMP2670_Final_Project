@@ -41,6 +41,7 @@ namespace GameOfPhones
         public bool cont = false;
         public string orderPart;
         private bool isFirstQuery = false;
+        bool switchh = false;
 
         public AdvancedSearch()
         {
@@ -306,7 +307,7 @@ namespace GameOfPhones
 
         private DataSet runQuery(string queryyy)
         {
-            bool switchh = true;
+            
             if (switchh)
             {
                 conn = new MySqlConnection("Server=10.14.52.125;Database=cellphone;Uid=root;");

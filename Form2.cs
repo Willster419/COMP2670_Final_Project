@@ -13,6 +13,7 @@ namespace GameOfPhones
 {
     public partial class Form2 : Form
     {
+        bool switchh = false;//set to false for localhost database
         MySqlConnection conn;
         public Form2()
         {
@@ -21,8 +22,6 @@ namespace GameOfPhones
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            string connectString = "Server=10.14.52.126;Database=cellphone;Uid=tom;Pwd=;";
-            conn = new MySqlConnection(connectString);
         }
 
         private void richTextBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -33,7 +32,7 @@ namespace GameOfPhones
         private void button1_Click(object sender, EventArgs e)
         {
             //execute query
-            bool switchh = true; ;
+            
             if (switchh)
             {
                 conn = new MySqlConnection("Server=10.14.52.125;Database=cellphone;Uid=root;");
